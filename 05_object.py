@@ -46,5 +46,34 @@ no = False
 print(100 < 5)  # False
 print(5 == 5)  # True
 
+# ====================================================================
+
+print("========= type() ==========")
+# type() - 자료형 확인
+# type(확인하고자 하는 것) -> 입력한 것의 자료형을 알려줌
+
+type(5)  # 터미널에서 확인 불가 - print 하지 않았기 때문
+print(type(5))  # <class 'int'> 정수
+print(type("센서A"))  # <class 'str'> 문자열
+print(type(True))  # <class 'bool'> 불리언형
+print("******* 🔽bool 로 출력되는 이유flow******")
+print(type(3 > 2))  # <class 'bool'> ** True가 아닌 형태를 알려주니, bool **
+# 1. print 함수의 내부를 확인
+# 2. print 함수에 또 함수가 있는 것을 확인하고 type 함수의 내부를 확인
+# 3. type 함수의 내부에 연산자가 있는 것을 확인하고 연산 진행
+# 4. 3 > 2 의 연산 결과는 ** True ** 이기 때문에 type(True)로 바뀜
+# 5. type(True)의 결과인 <class 'bool'>이 print로 인해 터미널에 출력
+
+print(3, type(3))  # 3 <class 'int'>
 
 
+num = 123
+fake_num = "123"
+str = "문자열"
+ok = True
+
+# 터미널에서 출력된 결과 중에서 type()을 사용해서 출력된 자료형을 쉽게 확인 할 수 있는 방법
+print(num, type(num))  # 123 <class 'int'>
+print(
+    "num :", type(num)
+)  # num : <class 'int'> | 가독성을 위해 "num :" 요로코롬 같이 사용
