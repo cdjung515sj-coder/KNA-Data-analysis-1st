@@ -76,4 +76,4 @@ ok = True
 print(num, type(num))  # 123 <class 'int'>
 print(
     "num :", type(num)
-)  # num : <class 'int'> | 가독성을 위해 "num :" 요로코롬 같이 사용
+)  # num : <class 'int'> | Tip. 가독성을 위해 "num :" 요로코롬 같이 사용
