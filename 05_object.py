@@ -107,3 +107,4 @@ print(round(0.1 + 0.823, 2))  # 소수 둘 째 자리를 반올림해서 0.92 �
 print(10 / 2)  # 5.0 (나눗셈은 결과가 딱 떨어져도 무조건 float(실수))
 print(type(10 / 2)) # <class 'float'>
 
+# add commit "int, float, str 자료형 특징 학습"
