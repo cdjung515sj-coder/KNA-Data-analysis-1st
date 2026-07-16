@@ -68,8 +68,67 @@ print(
     "int로 변환한 age 변수의 자료형 : ", type(age)
 )  # int로 변환한 age 변수의 자료형 :  <class 'int'>
 
-age = input("나이(형변환 ver) : ")  # => str
+age = int(input("나이(형변환 ver) : "))  # => str
 # input을 통해 사용자 입력값으로 받은 문자열을 매개변수로 받은 int 함수를 통해
 # int(정수형)으로 자료형이 바뀜 => age라는 변수에 값이 할당됨.
 print("사용자 입력값을 int로 변환한 age 변수의 자료형: ")  # => int
 print("당신은 곧", age + 1, "세가 됩니다.")
+
+# 사용자 입력을 int로 변환하지 못하는 값을 입력할 경우
+print(int("123"))  # 123
+# 😡 print(int("010-1234-5678")) # Error
+# ValueError: invalid literal for int() with base 10: '010-1234-5678'
+# -는 숫자가 아니기 때문에 int로 변환할 수 없음.
+
+# 번외) intput의 입력값으로 그냥 Enter 만 친 경우
+# "" 와 같이 공백 문자열이 들어감.
+
+# ============================
+print("=========== 형변환 - float =============")
+# float() - '실수'로 작성된 문자열을 float로 변환
+
+print(float(12.5))  # 12.5 # float()에 실수를 입력해도 동작 됨.
+print(float("12.5"))
+print(float("12"))  # int 12를 float 12.5로 변환해줌.
+
+# 사용자 입력값 float으로 변환
+tall = float(input("키 : "))
+print("tall :", ", tall의 자료형 :", type(tall))
+
+# =====================================
+print("===== 문자열로 변환 ======")
+
+year = int(input("태어난 연도 :"))
+print("당신의 현재 나이는", str(2026 - year + 1) + "세 입니다.")
+print("당신의 현재 나이는 " + str(2026 - year + 1) + "세 입니다.")
+print("당신의 현재 나이는" + "" + str(2026 - year + 1) + "세 입니다.")
+# int와 str + (더하기 연산자)로 이어붙일 수 없음
+# 이럴 때 int를 str로 변환해서 더하기 연산자 사용 가능
+
+# 💡💡질문 ) 진동값을 입력 받았을 때, 출력하는 경우
+vibe = input("진동값 :")
+print("현재 입력받은 진동값은 : " + vibe)
+# 값의 형태가 int나 float이어도 input으로 입력받은 경우 자료형은 무조건 str
+# 출력에서 + 연산자 사용은 형변환 없이 사용 가능
+# But, 실제로 int나 float로 입력받은 값을 str으로 변환해서 출력하는 경우가 많음
+
+
+# 💡💡질문 )
+# int, float, bool은 ====> str으로 변환 가능하다
+b = str(123) # "123"
+c = str(123.4) # "123.4"
+d = str(True) # "True"
+# e = int("str") # Error, float도 동일
+# f = int(False) # Error, float도 동일
+# f = int(false) # Error, f가 소문자면, "변수"라고 인지하기 때문에, false라는 변수가 없어서 불가
+
+#🔥🔥🔥🔥 형변환순서주의🔥🔥🔥🔥
+# input으로 받은 뒤 변환하는 순서
+# int(input("..."))은 괄호가 두 겹
+# 여는 괄호 두 개면 닫는 괄호도 두 개
+
+
+# ⭐⭐⭐⭐ 형변환함수정리(int·float·str) ⭐⭐⭐⭐
+# int(): 글자 → 정수 (나이·개수)
+# float(): 글자 → 실수 (온도·평균)
+# str(): 숫자 → 글자 (이어 붙이기)
