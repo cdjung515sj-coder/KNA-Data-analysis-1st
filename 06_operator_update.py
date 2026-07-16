@@ -84,3 +84,31 @@ print("정상" == "정상 ")  # False
 print("Hello" != "Hello")  # False ( 두 값이 동일한데 !로 인해서 값이 반대로 출력됨)
 print("Hello" != "hello")  # True
 print("hello" != "hello ")  # True ( 공백이 없고/있고 다르기 때문)
+
+## 변수에 문자열을 할당하고, 변수로 문자열 비교
+print("------질문 1. hello 변수에 할당하는 값을 따옴표로 감싸지 않고 비교")
+# hello = hi # hi는 따옴표에 감싸져있지 않기 때문에 변수로 취급됨
+# print(hello == hi) # NameError(선언하지 않은 이름 호출했을 때)
+# hi는 따옴표에 감싸져 있지 않기 때문에 변수로 취급됨
+# 그런데 우리는 hi 변수를 선언한 적이 없기 때문에 에러가 남
+
+# 질문 1) 해결방법 💡
+hi = "안녕"  # hello 변수에 hi 변수를 할당하기 전 hi 변수 선언
+hello = hi  # print(hello) > 안녕
+print("=== 변수 hello(안녕)와 변수 hi(안녕) 비교 ===")
+print(hello == hi)  # False
+
+# 위 비교에서 hello는 따옴표로 감싸져 있지 않기 때문에 "변수로" 취급
+# 만약, hello를 "hello"와 같이 따옴표로 감싸게 되면, str로 인식해서 변수로 취급하지 않음
+# (ex) "hello" 와 "hi"를 비교하는 것 => False 문자끼리 같지 않기 때문
+
+# 변수로 비교 연산자 사용
+num1 = 123
+num2 = 456
+
+print(num1 >= num2)  # False
+# print(num1 >= "num2")  # 🚨 TypeError 발생
+# TypeError: '>=' not supported between instances of 'int' and 'str'
+
+# ============================================================================
+print("============= 논리 연산자 ================")
