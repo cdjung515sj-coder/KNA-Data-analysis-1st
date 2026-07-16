@@ -112,3 +112,27 @@ print(num1 >= num2)  # False
 
 # ============================================================================
 print("============= 논리 연산자 ================")
+# and / or / not - 논리 연산자
+# 👽 앞에서 부터 비교 진행
+# and : 두 조건 다 True 여야 True 를 반환한다.
+print(5 == 5 and 7 == 7)  # True + True = True
+print(5 == 7 and 7 == 7)  # False + True = False
+# 🚩Tip. and 는 단, 첫 번째 ❌False라면 뒤 조건은 확인 안함.
+print(5 == 5 and 7 != 7)  # True +  False = False
+# 위 코드는 가능하다면 7 != 7 and 5 == 5 순서로 작성하는게 좋음
+
+# or : 하나라도 True면 True 반환
+# 🚩Tip. or 은 첫 번째 조건이 ⭕True라면 뒤 조건은 확인 안함.
+print(5 == 5 or 7 == 7)  # True + True = True
+print(5 == 7 or 7 == 7)  # False + True = True
+print(5 == 5 or 7 != 7)  # True +  False = True
+#  인 애를 앞에. 첫 번째로 두는게 좋아.
+
+# not : 부정 연산자로 반대로 값을 뒤집어 줌.
+print(not True)  # False
+print(
+    not 5 == 5
+)  # False ( 5 == 5 를 연산하여 True를 ---> not 부정함. 그래서 False 값 도출)
+# not True로 동작해서 True를 뒤집어 False로 반환함
+# 반환받은 False라는 🔥🔥값을 print가 터미널로 출력해줌.🔥🔥
+# 반복문, 조건문을 안 배워서 좋은 예시를 설명해줄 수 없음 다음에 배우면 다시 한 번 생각해방 💭
