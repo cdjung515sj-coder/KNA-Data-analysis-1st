@@ -14,11 +14,10 @@ print(test4[::-2])  # NHY 위와 반대로 출력됨⭐
 test5 = "PYTHON"
 print(test5[::-1])  # -1 뒤에서 앞으로 뛰기때문에 글자가 거꾸로 뒤집힘.
 
+# len()으로 전화번호 길이 재기
+number = "01012345678"
+print(len(number))
 
-test3 = "PYTHON"
-print(test3[0])
-print(test3[2])
-print(test3[5])
-
-test3 = "PYTHON"
-print(word[::-1])
+# .count() 개수세기
+abcd = "a,b,c,d"
+print(abcd.count(","))
