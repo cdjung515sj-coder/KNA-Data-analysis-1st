@@ -1,6 +1,6 @@
 count = 27
 temp = 36.5
-name = "수진"
+name = "오늘 밤 주인공"
 is_ok = True
 print(count, temp, name, is_ok)
 
@@ -31,8 +31,6 @@ count = "155"
 print("count :", type(count))  # count : <class 'str'>
 
 dvice_temp = 41.2  # <class 'float'>
-check_count = 7  #<class 'int'>
-device_name = "뷰티디바이서"  #<class 'str'>
+check_count = 7  # <class 'int'>
+device_name = "뷰티디바이서"  # <class 'str'>
 is_normal = True  # <class 'bool'>
-
-
