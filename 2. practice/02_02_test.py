@@ -1,7 +1,7 @@
 print("=== 실습 1 - 여러 자료형 변수 ===")
 count = 5
 temp = 9.8
-name = "Park Min Ho"
+name = "설~익은 감자"
 is_ok = True
 print(count, ",", temp, ",", name, ",", is_ok)
 print("\n")
