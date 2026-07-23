@@ -49,7 +49,7 @@ git config --global core.autocrlf true — 윈도우/맥 사이 줄바꿈
    ① 터미널 열기 :  Ctrl + `(백틱)   또는  메뉴 Terminal → New Terminal
    ② 셸 고르기   :  터미널 우측 위 [ + ] 옆 드롭다운(∨) 클릭
    ③ Select Default Profile → "Git Bash" 선택
-   ④ 새 터미널을 열면 이제 Git Bash로 열림 (프롬프트에 $ 표시
+   ④ 새 터미널을 열면 이제 Git Bash로 열림 ( 프롬프트에 $ 표시 )
 
    **사용 이유**
   이 말은 윈도우(Windows) 컴퓨터를 쓰면서 개발을 배울 때, "명령어를 입력하는 프로그램으로 일반 윈도우 창(CMD/PowerShell) 대신 'Git Bash'라는 프로그램을 쓰면 훨씬 편리하고 에러가 안 난다"는 뜻입니다.
