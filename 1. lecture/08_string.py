@@ -682,3 +682,18 @@ product = "1, NORMAL ,25.3"
 prod = product.split(",") # ['1', ' NORMAL ', '25.3']
 status = prod[1].strip().lower()
 print(status) 
+
+# =======================================================================
+print("======== f-string ==========")
+
+name = '홍길동'
+age = 25
+
+
+print(f'{name}님은 {age}살입니다')
+code = 'EQP-001'
+print(f'설비 {code} 점검 완료')
+
+name = "PUMP_A"
+temp = 87
+print(f"설비 {name}, 온도 {temp}℃")
