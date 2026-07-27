@@ -484,7 +484,23 @@ print("====== 체이닝 : 메서드 연결하기 =======")
 # 정리 단계가 여러 개일 때 코드가 깔끔
 
 raw = ' NORMAL '
+
+# 체이닝 X
 step1 = raw.strip() # 'NORMAL'
+step2 = step1.lower() # normal
+
+# 체이닝 X, 기존 변수에 재할당
+raw = raw.strip() # 'NORMAL'
+raw = raw.lower() # normal
+
+# 체이닝 O + 재할당
 clean = raw.strip().lower() # 'normal'
 print(clean)
 
+# 변수에 할당하지 않고 사용 가능
+print(raw.strip().lower())
+
+# 실습
+str = "   Warning   "
+print("["+str.lower()+"]")
+print("["+str.strip().lower()+"]")
