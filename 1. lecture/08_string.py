@@ -366,7 +366,10 @@ num += 1  # 3
 # += 은 복합할당연산자로 원래 내 자신의 값에 다음 오는 연산자와 값을 적용해서 재할당
 
 # ------------------------------------
-print("====== .upper() =======")
+print("====== .upper() / .lower =======")
+
+# 대소문자 통일이 필요한 이유는 한 파일에 섞여 같은 상태가 따로 집계되는 문제가 발생함
+# 보통 소문자로 맞춤
 
 str3 = "abcdefg"
 print(str3)   # abcdefg
@@ -388,3 +391,100 @@ str3 = str3.upper()
 r = "ready"
 rUP = r.upper()
 print(rUP)
+
+W = "WARNING"
+w = W.lower()
+print(w)
+
+# lower
+a = "Fault"
+b = "FAULT"
+print(a == b) # False (대소문자 달라 다른 값)
+print(a.lower() == b.lower()) # True (소문자로 통일 후 비교)
+
+# ------------------------------------
+print("====== capitalize() / title() =======")
+
+user_name = "jeong su jin"
+
+# capitalize는 문자열의 첫 글자만 대문자로 변환
+print(user_name.capitalize())  # Jeong su jin
+
+# title은 띄어쓰기 기준으로 각 단어의 첫글자들을 모두 대문자로 변환
+print(user_name.title())   # Jeong Su Jin
+
+# '를 사용한 경우, 다른 단어로 인식
+print("i'm full".title())  # I'M Full
+print('i\'m full'.title())  # I'M Full
+
+
+# ------------------------------------
+print("====== isupper() / islower() =======")
+
+# 모두 대문자/소문자인지 참/거짓으로 확인
+# 메서드임
+
+a = "ABC"
+b = "abc"
+c = "Abc"
+print(a.isupper()) # True
+print(b.islower()) # True
+print(c.isupper()) # False
+print(c.islower()) # False
+
+Sfile = "Sensor_LOG.CSV"
+low = Sfile.lower()
+print(low.startswith("sensor"))
+print(low.endswith(".csv"))
+
+
+# ------------------------------------
+print("====== .strip() | 앞,뒤 공백 제거 =======")
+
+# 공백 제거
+# .strip() : 앞, 뒤 모든 공백 제거 (중간 띄어쓰기는 그대로 유지됨)
+# .lstrip() : left(왼쪽) 공백만 제거
+# .rstrip() : right(오른쪽) 공백만 제거
+
+
+text = '   정상   '
+print('['+text.strip()+']') # [정상]
+print('['+text.lstrip()+']') # [정상   ]
+print('['+text.rstrip()+']') # [   정상]
+
+
+# 문자열의 가운데 공백은 strip으로 지우지 못함
+print("    정   상   ".strip())   # 정   상
+
+print(text) #
+# strip은 재할당이나 새 변수에 할당하지 않은 이상 휘발됨.⭐⭐⭐
+
+# strip 으로 문자 제거
+str4 = "===정상==="
+print(str4.strip("=")) # 정상
+# 인자로 전달한 양 끝의 =이 모두 지워짐
+
+str5 = "=정상========="
+print(str5.strip("=")) # 정상
+# 갯수 상관 없이 인자로 전달한 무자를 무조건 삭제
+print(str5.strip("= "))
+# strip 자체가 공백을 지우는 것이기 때문에
+# 공백 상관없이 양 끝의 해당 문자열 삭제
+
+str6 = "===정===상==="
+print(str6.strip("="))   # 정===상
+# 글자 중간에 있는 문자열은 건드리지 않음.
+
+# ------------------------------------
+print("====== 체이닝 : 메서드 연결하기 =======")
+
+# 메서드 뒤에 또 메서드를 점으로 이어 붙이기
+# text.strip().lower()는 공백 제거 후 소문자
+# 읽는 순서는 왼쪽에서 오른쪽으로
+# 정리 단계가 여러 개일 때 코드가 깔끔
+
+raw = ' NORMAL '
+step1 = raw.strip() # 'NORMAL'
+clean = raw.strip().lower() # 'normal'
+print(clean)
+
