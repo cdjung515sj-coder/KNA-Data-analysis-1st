@@ -614,5 +614,27 @@ list = ['2025','01','15']
 print("-".join(list))
 
 # 변수에 "python" 문자열  pyThon 출력
-a = "python"
-print(a[:2]+a[2].upper()+a[3:])
+
+word = "python"
+
+# 방법 1] strip + capitalize
+print(word[:2] + word.strip("py").capitalize())  # thon
+
+# 방법 2] replace
+print(word.replace("t","T"))
+
+# 방법 3] 슬라이싱 + T 만 upper 사용
+print(word[:2] + word[2].upper() + word[3:])
+
+# 방법 4] 인덱싱으로 글자 하나씩 연결
+print(word[0]+word[1]+word[3].upper()+word[4]+word[5])
+
+# 방법 5] 인덱싱 + strip + title
+print(word[:2] + word.strip("py").title())  # thon
+
+# 방법 6] split + join
+print(word.split("t"))  # ['py', 'hon']
+print("T".join(word.split("t"))) 
+print(word[2].upper().join(word.split("t")))
+print((word[2].upper()).join(word.split("t")))
+
