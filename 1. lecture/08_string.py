@@ -500,7 +500,25 @@ print(clean)
 # 변수에 할당하지 않고 사용 가능
 print(raw.strip().lower())
 
+
+
 # 실습
-str = "   Warning   "
-print("["+str.lower()+"]")
-print("["+str.strip().lower()+"]")
+str7 = "   Warning   "
+str7 = str7.lower()
+print("["+str7+"]")
+
+str7 = str7.strip().lower()
+print("["+str7+"]")
+
+
+# 대소문자 - upper, lower, capitalize, title, isupper, islower
+# 공백 - strip, lstrip, rstrip, strip(문자)
+# 점으로 이어 붙이는 체이닝 가능
+
+
+# strip() 메서드에 인자로 들어가는 문자열은 완전히 동일하지 않아도 삭제됨
+str8 = "aaab 오잉 cd"
+print(str8.strip('abcd')) # " 오잉 "
+print(str8.strip('abcd ')) # "오잉"
+print(str8.strip('ab')) # "오잉 cd"
+print(str8.strip('bc')) # "aaab 오잉 cd"
