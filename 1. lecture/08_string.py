@@ -220,3 +220,90 @@ print(at)  # 4
 # email 내에서 "@" 문자를 찾고 싶어. => @ 위치의 인덱스인 4가 할당됨.
 user_id = email[:at]  # hong 이라는 사용자 아이디만 추출 가능하다.
 print(user_id)
+
+# SQE-00Q8이라는 설비의 SQE만 뽑아내기 (find와 슬라이싱 사용)
+sqe ="SQE-000Q9"
+
+sqe_index = sqe.find("SQE")
+print(sqe_index) # 0
+
+sqe_index = sqe.find("-")
+print(sqe_index) # 3
+sqe_fin = sqe[:sqe_index]  # sqe[0:3] ==> SQE
+print(sqe_fin) # SQE
+
+
+
+email = 'hong@company.com'
+at = email.find('@')
+print(at) # 4
+print(email[:at]) # hong
+print('정상'.find('고장')) # -1
+
+email[0:email.find("@")]
+# 1. at 변수 사용 안함. 바로 슬라이싱에 삽입
+# 2. 0을 썼다. (start 명시, 하지만 생략 가능)
+# at 사용 안하고 상황에 따라 넣고 안넣고 해야해. 변수에 담아줘야해. 여러번 쓸 때 마다 연산하면 비효율적이니 재활용되는 함수는 변수로 할당하는게 좋음.
+
+# ------------------------------------
+print("====== index() =======")
+
+# 특정 문자열의 위치(인덱스 번호)를 반환
+# 앞에서부터 가장 처음 나오는 인덱스 번호만 반환 ⭐⭐⭐
+# 찾는 문자열이 없으면 Error 발생.
+
+email = "layla@spreatics.com"
+at = email.index("@") # 5 출력
+print(email[0:at]) # layla
+print(email[:at]) # 시작 번호가 0이라면 start 생략 가능
+print(email[at:]) # 끝까지 출력하고 싶고, 뒤에 몇 글자가 있는지 모르니 생략한 도메인
+# 위처럼 시작하면 5번 인덱스부터 출력하기 때문에 @을 포함
+print(email[at+1:])  # at + 1을 하면 @ 을 포함하지 않고 출력 
+
+
+
+# find 에서 했던 SQE 뽑아내기 실습 index 사용으로 바꾸기
+
+sqe ="SQE-000Q9"
+
+sqe_index = sqe.index("-") # - 있으니 정상 동작
+print(sqe_index) # 3
+sqe_fin = sqe[:sqe_index]
+print(sqe_fin) # SQE
+
+# sqe_index = sqe.index("/") # / 없으니 ERROR 나고 중단됨
+# print(sqe_index) # 3
+# sqe_fin = sqe[:sqe_index]
+# print(sqe_fin) # SQE
+
+# ------------------------------------
+print("====== count() =======")
+
+# 문자열에서 특정 문자열의 갯수 세기
+
+str = "a, b, c, d, e,a, a"
+
+#  a 의 갯수 세기
+print(str.count("a")) # 3
+
+#  , 의 갯수 세기
+print(str.count(",")) # 6
+
+#  , 의 갯수 세기
+print(str.count(", ")) # 5  # count 로 찾는 문자열과 완전히 동일해야 갯수를 셈
+
+
+# ------------------------------------
+print("====== startswith() =======")
+
+# 특정 문자열로 시작하는지 검사
+# True/False (불리언)
+
+# EQP로 시작하는지 검사하기
+print("EQP-001".startswith("EQP"))
+
+# 변수 활용
+eqp = "EQP"
+print("EQP-001".startswith(eqp))
+# ⚠️ 주의사항) 변수명은 절대 따옴표 감싸기 금지 
+
