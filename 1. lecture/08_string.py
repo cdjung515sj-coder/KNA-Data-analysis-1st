@@ -612,3 +612,7 @@ print(",".join(fruits_list))  # 딸기,망고스틴,수박,자몽,포도,키위,
 # 리스트 합치기 실습
 list = ['2025','01','15']
 print("-".join(list))
+
+# 변수에 "python" 문자열  pyThon 출력
+a = "python"
+print(a[:2]+a[2].upper()+a[3:])
