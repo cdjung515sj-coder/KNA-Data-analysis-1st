@@ -522,3 +522,14 @@ print(str8.strip('abcd')) # " 오잉 "
 print(str8.strip('abcd ')) # "오잉"
 print(str8.strip('ab')) # "오잉 cd"
 print(str8.strip('bc')) # "aaab 오잉 cd"
+
+
+# GPT 질문 방법
+str8 = "aaab 오잉 cd"
+print(str8.strip('abcd')) # " 오잉 "
+
+# 지금 출력 결과는 " 오잉 " 이렇게 나오고 있어
+# 내가 생각했을 때 ==처럼 정확하게 "abcd" 순서가 아니면 strip이 안될 줄 알았는데 실행 결과를 보니 순서랑 상관없이
+# 인자로 전달한 문자열에 해당하는 글자가 확인하는 문자열 양 끝에 하나라도 있으면 동작하는 것 같아.
+# 내가 이해한게 맞아?
+# 그렇다면 왜 이렇게 동작하는거야?
