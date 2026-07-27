@@ -100,7 +100,7 @@ print(abc[9], abc[8], abc[13], abc[13], abc[-2])
 # 주의사항은, 음수 인덱스는 가장 마지막 글자가 💡-1부터 시작함.
 
 
-#=============================================================
+# =============================================================
 # ⚠️⚠️ 슬라이싱 뇌 저~릿~ 주의 ⚠️⚠️
 print("==== 슬라이싱 ====")
 # 슬라이싱 - 구간으로 잘라내기 동작을 함.
@@ -222,25 +222,24 @@ user_id = email[:at]  # hong 이라는 사용자 아이디만 추출 가능하�
 print(user_id)
 
 # SQE-00Q8이라는 설비의 SQE만 뽑아내기 (find와 슬라이싱 사용)
-sqe ="SQE-000Q9"
+sqe = "SQE-000Q9"
 
 sqe_index = sqe.find("SQE")
-print(sqe_index) # 0
+print(sqe_index)  # 0
 
 sqe_index = sqe.find("-")
-print(sqe_index) # 3
+print(sqe_index)  # 3
 sqe_fin = sqe[:sqe_index]  # sqe[0:3] ==> SQE
-print(sqe_fin) # SQE
+print(sqe_fin)  # SQE
 
 
+email = "hong@company.com"
+at = email.find("@")
+print(at)  # 4
+print(email[:at])  # hong
+print("정상".find("고장"))  # -1
 
-email = 'hong@company.com'
-at = email.find('@')
-print(at) # 4
-print(email[:at]) # hong
-print('정상'.find('고장')) # -1
-
-email[0:email.find("@")]
+email[0 : email.find("@")]
 # 1. at 변수 사용 안함. 바로 슬라이싱에 삽입
 # 2. 0을 썼다. (start 명시, 하지만 생략 가능)
 # at 사용 안하고 상황에 따라 넣고 안넣고 해야해. 변수에 담아줘야해. 여러번 쓸 때 마다 연산하면 비효율적이니 재활용되는 함수는 변수로 할당하는게 좋음.
@@ -253,23 +252,22 @@ print("====== index() =======")
 # 찾는 문자열이 없으면 Error 발생.
 
 email = "layla@spreatics.com"
-at = email.index("@") # 5 출력
-print(email[0:at]) # layla
-print(email[:at]) # 시작 번호가 0이라면 start 생략 가능
-print(email[at:]) # 끝까지 출력하고 싶고, 뒤에 몇 글자가 있는지 모르니 생략한 도메인
+at = email.index("@")  # 5 출력
+print(email[0:at])  # layla
+print(email[:at])  # 시작 번호가 0이라면 start 생략 가능
+print(email[at:])  # 끝까지 출력하고 싶고, 뒤에 몇 글자가 있는지 모르니 생략한 도메인
 # 위처럼 시작하면 5번 인덱스부터 출력하기 때문에 @을 포함
-print(email[at+1:])  # at + 1을 하면 @ 을 포함하지 않고 출력 
-
+print(email[at + 1 :])  # at + 1을 하면 @ 을 포함하지 않고 출력
 
 
 # find 에서 했던 SQE 뽑아내기 실습 index 사용으로 바꾸기
 
-sqe ="SQE-000Q9"
+sqe = "SQE-000Q9"
 
-sqe_index = sqe.index("-") # - 있으니 정상 동작
-print(sqe_index) # 3
+sqe_index = sqe.index("-")  # - 있으니 정상 동작
+print(sqe_index)  # 3
 sqe_fin = sqe[:sqe_index]
-print(sqe_fin) # SQE
+print(sqe_fin)  # SQE
 
 # sqe_index = sqe.index("/") # / 없으니 ERROR 나고 중단됨
 # print(sqe_index) # 3
@@ -284,13 +282,13 @@ print("====== count() =======")
 str = "a, b, c, d, e,a, a"
 
 #  a 의 갯수 세기
-print(str.count("a")) # 3
+print(str.count("a"))  # 3
 
 #  , 의 갯수 세기
-print(str.count(",")) # 6
+print(str.count(","))  # 6
 
 #  , 의 갯수 세기
-print(str.count(", ")) # 5  # count 로 찾는 문자열과 완전히 동일해야 갯수를 셈
+print(str.count(", "))  # 5  # count 로 찾는 문자열과 완전히 동일해야 갯수를 셈
 
 
 # ------------------------------------
@@ -308,7 +306,6 @@ print("EQP-001".startswith(eqp))
 # ⚠️ 주의사항) 변수명은 절대 따옴표 감싸기 금지 !!!! ⭐⭐⭐⭐⭐⭐⭐
 
 
-
 # ------------------------------------
 print("====== endswith() =======")
 
@@ -317,35 +314,36 @@ print("====== endswith() =======")
 
 str2 = "월요일입니다! 여러분은 할 수 있어요!"
 
-print(str2.endswith("!")) # True
-print(str2.endswith("요!")) # True
-print(str2.endswith("음!")) # False
-print(str2.endswith("월요일입니다! 여러분은 할 수 있어요!")) # True
+print(str2.endswith("!"))  # True
+print(str2.endswith("요!"))  # True
+print(str2.endswith("음!"))  # False
+print(str2.endswith("월요일입니다! 여러분은 할 수 있어요!"))  # True
 # 완전히 똑같아야 True. 공백 있으면 거짓이죵
-print(str2.endswith("월요일입니다!                     여러분은 할 수 있어요!")) # False
-print(str2.endswith("월요일입니다! 여러분은 할 수 있어요! ")) # False
-print(str2.endswith(" 월요일입니다! 여러분은 할 수 있어요!")) # False
+print(
+    str2.endswith("월요일입니다!                     여러분은 할 수 있어요!")
+)  # False
+print(str2.endswith("월요일입니다! 여러분은 할 수 있어요! "))  # False
+print(str2.endswith(" 월요일입니다! 여러분은 할 수 있어요!"))  # False
 
-print(str2) # 원래 할당된 문자
+print(str2)  # 원래 할당된 문자
 
-# 실습 startswith / endswith 
-csv_file = 'sensor_log.csv'
-print(csv_file.startswith('sensor'))
-print(csv_file.endswith('.csv'))
-
+# 실습 startswith / endswith
+csv_file = "sensor_log.csv"
+print(csv_file.startswith("sensor"))
+print(csv_file.endswith(".csv"))
 
 
 # ------------------------------------
 print("====== 값은 객체다 class =======")
 
-print(type("잊어먹으면 안돼!!!")) # <class 'str'>
+print(type("잊어먹으면 안돼!!!"))  # <class 'str'>
 print(len("이렇게 썼죠??"))
-# endswith 와 len의 차이는? 
+# endswith 와 len의 차이는?
 # endswith 는 .으로 연결
-    # . 으로 연결하는 이런 도구들은 "매서드"
-    # 문자열이나 int, float 처럼 특정 자료형(객체) 내부에 포함된 기능을 의미함.
+# . 으로 연결하는 이런 도구들은 "매서드"
+# 문자열이나 int, float 처럼 특정 자료형(객체) 내부에 포함된 기능을 의미함.
 # len은 . 을 사용 안함
-    # () -> 함수 로, len과 같이 같이 개발자가 직접 선언하지 않은 기본 제공함수는 "내장함수" 라고 함
+# () -> 함수 로, len과 같이 같이 개발자가 직접 선언하지 않은 기본 제공함수는 "내장함수" 라고 함
 
 "str".startswith("s")
 # 🚨 123.startswith(1) 쓸 수 없어요. 정의되지 않았기 때문. 왜? int 자료형엔 메서드가 저장되어 있지 않은거에요.
@@ -354,7 +352,6 @@ print(len("이렇게 썼죠??"))
 
 # 🚨 print(len(123)) # TypeError: object of type 'int' has no len()
 # len 내장함수는 길이를 반환하기 때문에 int 자료형 사용 불가 !
-
 
 
 # ------------------------------------
@@ -372,10 +369,10 @@ print("====== .upper() / .lower =======")
 # 보통 소문자로 맞춤
 
 str3 = "abcdefg"
-print(str3)   # abcdefg
+print(str3)  # abcdefg
 
-str3.upper # ABCDEFG -> 반환은 대문자이나, 값에 재할당은 되지 않음
-print(str3)   # abcdefg -> 기존 str3인 값인 소문자를 그대로 출력
+str3.upper  # ABCDEFG -> 반환은 대문자이나, 값에 재할당은 되지 않음
+print(str3)  # abcdefg -> 기존 str3인 값인 소문자를 그대로 출력
 
 # 앞으로 계속 대문자로 변환한 값을 사용하고 싶ㄷ면
 # 변수에 재할당 필요
@@ -399,8 +396,8 @@ print(w)
 # lower
 a = "Fault"
 b = "FAULT"
-print(a == b) # False (대소문자 달라 다른 값)
-print(a.lower() == b.lower()) # True (소문자로 통일 후 비교)
+print(a == b)  # False (대소문자 달라 다른 값)
+print(a.lower() == b.lower())  # True (소문자로 통일 후 비교)
 
 # ------------------------------------
 print("====== capitalize() / title() =======")
@@ -411,11 +408,11 @@ user_name = "jeong su jin"
 print(user_name.capitalize())  # Jeong su jin
 
 # title은 띄어쓰기 기준으로 각 단어의 첫글자들을 모두 대문자로 변환
-print(user_name.title())   # Jeong Su Jin
+print(user_name.title())  # Jeong Su Jin
 
 # '를 사용한 경우, 다른 단어로 인식
 print("i'm full".title())  # I'M Full
-print('i\'m full'.title())  # I'M Full
+print("i'm full".title())  # I'M Full
 
 
 # ------------------------------------
@@ -427,10 +424,10 @@ print("====== isupper() / islower() =======")
 a = "ABC"
 b = "abc"
 c = "Abc"
-print(a.isupper()) # True
-print(b.islower()) # True
-print(c.isupper()) # False
-print(c.islower()) # False
+print(a.isupper())  # True
+print(b.islower())  # True
+print(c.isupper())  # False
+print(c.islower())  # False
 
 Sfile = "Sensor_LOG.CSV"
 low = Sfile.lower()
@@ -447,32 +444,32 @@ print("====== .strip() | 앞,뒤 공백 제거 =======")
 # .rstrip() : right(오른쪽) 공백만 제거
 
 
-text = '   정상   '
-print('['+text.strip()+']') # [정상]
-print('['+text.lstrip()+']') # [정상   ]
-print('['+text.rstrip()+']') # [   정상]
+text = "   정상   "
+print("[" + text.strip() + "]")  # [정상]
+print("[" + text.lstrip() + "]")  # [정상   ]
+print("[" + text.rstrip() + "]")  # [   정상]
 
 
 # 문자열의 가운데 공백은 strip으로 지우지 못함
-print("    정   상   ".strip())   # 정   상
+print("    정   상   ".strip())  # 정   상
 
-print(text) #
+print(text)  #
 # strip은 재할당이나 새 변수에 할당하지 않은 이상 휘발됨.⭐⭐⭐
 
 # strip 으로 문자 제거
 str4 = "===정상==="
-print(str4.strip("=")) # 정상
+print(str4.strip("="))  # 정상
 # 인자로 전달한 양 끝의 =이 모두 지워짐
 
 str5 = "=정상========="
-print(str5.strip("=")) # 정상
+print(str5.strip("="))  # 정상
 # 갯수 상관 없이 인자로 전달한 무자를 무조건 삭제
 print(str5.strip("= "))
 # strip 자체가 공백을 지우는 것이기 때문에
 # 공백 상관없이 양 끝의 해당 문자열 삭제
 
 str6 = "===정===상==="
-print(str6.strip("="))   # 정===상
+print(str6.strip("="))  # 정===상
 # 글자 중간에 있는 문자열은 건드리지 않음.
 
 # ------------------------------------
@@ -483,32 +480,31 @@ print("====== 체이닝 : 메서드 연결하기 =======")
 # 읽는 순서는 왼쪽에서 오른쪽으로
 # 정리 단계가 여러 개일 때 코드가 깔끔
 
-raw = ' NORMAL '
+raw = " NORMAL "
 
 # 체이닝 X
-step1 = raw.strip() # 'NORMAL'
-step2 = step1.lower() # normal
+step1 = raw.strip()  # 'NORMAL'
+step2 = step1.lower()  # normal
 
 # 체이닝 X, 기존 변수에 재할당
-raw = raw.strip() # 'NORMAL'
-raw = raw.lower() # normal
+raw = raw.strip()  # 'NORMAL'
+raw = raw.lower()  # normal
 
 # 체이닝 O + 재할당
-clean = raw.strip().lower() # 'normal'
+clean = raw.strip().lower()  # 'normal'
 print(clean)
 
 # 변수에 할당하지 않고 사용 가능
 print(raw.strip().lower())
 
 
-
 # 실습
 str7 = "   Warning   "
 str7 = str7.lower()
-print("["+str7+"]")
+print("[" + str7 + "]")
 
 str7 = str7.strip().lower()
-print("["+str7+"]")
+print("[" + str7 + "]")
 
 
 # 대소문자 - upper, lower, capitalize, title, isupper, islower
@@ -518,15 +514,15 @@ print("["+str7+"]")
 
 # strip() 메서드에 인자로 들어가는 문자열은 완전히 동일하지 않아도 삭제됨
 str8 = "aaab 오잉 cd"
-print(str8.strip('abcd')) # " 오잉 "
-print(str8.strip('abcd ')) # "오잉"
-print(str8.strip('ab')) # "오잉 cd"
-print(str8.strip('bc')) # "aaab 오잉 cd"
+print(str8.strip("abcd"))  # " 오잉 "
+print(str8.strip("abcd "))  # "오잉"
+print(str8.strip("ab"))  # "오잉 cd"
+print(str8.strip("bc"))  # "aaab 오잉 cd"
 
 
 # GPT 질문 방법
 str8 = "aaab 오잉 cd"
-print(str8.strip('abcd')) # " 오잉 "
+print(str8.strip("abcd"))  # " 오잉 "
 
 # 지금 출력 결과는 " 오잉 " 이렇게 나오고 있어
 # 내가 생각했을 때 ==처럼 정확하게 "abcd" 순서가 아니면 strip이 안될 줄 알았는데 실행 결과를 보니 순서랑 상관없이
@@ -541,22 +537,60 @@ print("====== replace() =======")
 # .replace("바꾸고싶은문자열", "바꿀문자열")
 # 제거할 떄는 인자의 두 번째를 ""(빈문자열)로 작성
 
-print("정 상 작 동".replace(" ","")) # 정상가동 (중간 공백 제거)
-print("   정          상 작 동".replace(" ","")) # 정상가동 (모든 공백 제거)
-print("   정   상 작 동".replace("  ","")) #  정 상 가 동 (2칸 공백만 제거)
+print("정 상 작 동".replace(" ", ""))  # 정상가동 (중간 공백 제거)
+print("   정          상 작 동".replace(" ", ""))  # 정상가동 (모든 공백 제거)
+print("   정   상 작 동".replace("  ", ""))  #  정 상 가 동 (2칸 공백만 제거)
 
 # 글자 치환
-print("고장".replace("고장","fault")) # fault
-print("고장".replace("고","fault")) # fault장
+print("고장".replace("고장", "fault"))  # fault
+print("고장".replace("고", "fault"))  # fault장
 
 # 단어 치환
 str9 = "설비 정상 가동"
-print(str9.replace("정상","점검")) # 설비 점검 가동
+print(str9.replace("정상", "점검"))  # 설비 점검 가동
 
 # replace() 체이닝
 num = "    010-1234-1234   "
-print(num.replace(" ","")) # 010-1234-1234
-print(num.replace(" ","").replace("-",""))  # 01012341234
+print(num.replace(" ", ""))  # 010-1234-1234
+print(num.replace(" ", "").replace("-", ""))  # 01012341234
 
+
+# ------------------------------------
+print("====== split() =======")
+
+# 문자열 자르기
+# 결과는 대괄호에 감싸진 "리스트" 자료형
+# 리스트는 순서가 있기 때문에 왼쪽에서부터 0으로 시작하는 인덱스가 자동 생성
+
+drinks = "에스크레소 아메리카노 카페라떼"
+print(drinks.split())  # 인자를 보내지 않음
+# ['에스크레소', '아메리카노', '카페라떼']
+# "띄어쓰기"를 기준으로 나뉘어진 세 개의 문자열을 대괄호에 감싸서 반환
+
+# 구분자를 특정하고 싶은 경우
+fruits = "딸기,망고스틴,수박,자몽,포도,키위,사쿠란보"
+print(fruits.split(","))  # 문자열 콤마를 기준으로 분할
+#['딸기', '망고스틴', '수박', '자몽', '포도', '키위', '사쿠란보']
+
+fruits2 = "딸기, 망고스틴, 수박, 자몽, 포도, 키위, 사쿠란보"
+print(fruits2.split(","))  # 문자열 콤마를 기준으로 분할
+#['딸기', ' 망고스틴', ' 수박', ' 자몽', ' 포도', ' 키위', ' 사쿠란보'] -> 공백 그대로 유지
+
+print(fruits2.split(", "))  # 문자열 콤마+공백 1칸을 기준으로 분할
+#['딸기', '망고스틴', '수박', '자몽', '포도', '키위', '사쿠란보']
+
+# 리스트의 인덱스
+fruits_list = fruits.split(",")
+print(fruits_list)
+
+# 포도만 출력하기
+print(fruits_list[5]) # 키위
+print(fruits_list[3]) # 자몽
+print(fruits_list[-1]) # 사쿠란보
+
+# split 횟수 제한
+num = "010-1234-1234"
+# ["010","1234-1234"] 출력하고 싶음
+print(num.split("-",1))
 
 
