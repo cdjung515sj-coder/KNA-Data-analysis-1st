@@ -305,5 +305,36 @@ print("EQP-001".startswith("EQP"))
 # 변수 활용
 eqp = "EQP"
 print("EQP-001".startswith(eqp))
-# ⚠️ 주의사항) 변수명은 절대 따옴표 감싸기 금지 
+# ⚠️ 주의사항) 변수명은 절대 따옴표 감싸기 금지 !!!! ⭐⭐⭐⭐⭐⭐⭐
+
+
+
+# ------------------------------------
+print("====== endswith() =======")
+
+# 특정 문자열로 끝나는지 확인
+# True / False로 반환
+
+str2 = "월요일입니다! 여러분은 할 수 있어요!"
+
+print(str2.endswith("!")) # True
+print(str2.endswith("요!")) # True
+print(str2.endswith("음!")) # False
+print(str2.endswith("월요일입니다! 여러분은 할 수 있어요!")) # True
+# 완전히 똑같아야 True. 공백 있으면 거짓이죵
+print(str2.endswith("월요일입니다!                     여러분은 할 수 있어요!")) # False
+print(str2.endswith("월요일입니다! 여러분은 할 수 있어요! ")) # False
+print(str2.endswith(" 월요일입니다! 여러분은 할 수 있어요!")) # False
+
+
+# 실습 startswith / endswith 
+csv_file = 'sensor_log.csv'
+print(csv_file.startswith('sensor'))
+print(csv_file.endswith('.csv'))
+
+
+
+# ------------------------------------
+print("====== 문자열로 비교하기 =======")
+
 
