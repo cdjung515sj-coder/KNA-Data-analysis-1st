@@ -326,6 +326,7 @@ print(str2.endswith("월요일입니다!                     여러분은 할 �
 print(str2.endswith("월요일입니다! 여러분은 할 수 있어요! ")) # False
 print(str2.endswith(" 월요일입니다! 여러분은 할 수 있어요!")) # False
 
+print(str2) # 원래 할당된 문자
 
 # 실습 startswith / endswith 
 csv_file = 'sensor_log.csv'
@@ -347,6 +348,43 @@ print(len("이렇게 썼죠??"))
     # () -> 함수 로, len과 같이 같이 개발자가 직접 선언하지 않은 기본 제공함수는 "내장함수" 라고 함
 
 "str".startswith("s")
-# 123.startswith(1) 쓸 수 없어요. 정의되지 않았기 때문. 왜? int 자료형엔 메서드가 저장되어 있지 않은거에요.
+# 🚨 123.startswith(1) 쓸 수 없어요. 정의되지 않았기 때문. 왜? int 자료형엔 메서드가 저장되어 있지 않은거에요.
 # . 으로 사용하는 메서드들은 특정 자료형(객체 타입)마다 다름
 # int 자료형의 객체에는 startswith라는 메서드가 없음
+
+# 🚨 print(len(123)) # TypeError: object of type 'int' has no len()
+# len 내장함수는 길이를 반환하기 때문에 int 자료형 사용 불가 !
+
+
+
+# ------------------------------------
+print("====== 재할당 복습 =======")
+
+num = 1
+num = num + 1  # 2
+num += 1  # 3
+# += 은 복합할당연산자로 원래 내 자신의 값에 다음 오는 연산자와 값을 적용해서 재할당
+
+# ------------------------------------
+print("====== .upper() =======")
+
+str3 = "abcdefg"
+print(str3)   # abcdefg
+
+str3.upper # ABCDEFG -> 반환은 대문자이나, 값에 재할당은 되지 않음
+print(str3)   # abcdefg -> 기존 str3인 값인 소문자를 그대로 출력
+
+# 앞으로 계속 대문자로 변환한 값을 사용하고 싶ㄷ면
+# 변수에 재할당 필요
+# 변수 재할당에서 변수 스스로를 부르는 것이 가능
+# 재할당에서 변수 스스로 값을 부르려면 무조건 "재할당" 이어야 함.
+
+
+str3 = str3.upper()
+
+# 최초 변수 할당 시에는 저장된 값이 없어서, 변수 스스로 값을 불러와 할당? 불가능
+# str4 = str4.upper() # => 그래서 오류
+
+r = "ready"
+rUP = r.upper()
+print(rUP)
