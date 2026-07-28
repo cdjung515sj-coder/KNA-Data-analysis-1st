@@ -60,3 +60,27 @@ print(type(str_machines[0])) #  <class 'str'>
 print(type(mixed[1])) # <class 'int'>
 print(type(mixed[-1])) # <class 'bool'>
 print(type(mixed)) # <class 'list'>
+
+# 리스트 슬라이싱
+# 리스트명 [시작:끝:간격]
+# 시작, 끝, 간격 인덱스는 모두 생략 가능 (문자열과 동일)
+
+# int_temps = [10, 20, 30, 40, 50, 60, 100]
+print(int_temps[1:3]) # [20, 30]
+print(int_temps[1:2]) # [20]
+print(int_temps[:2]) # [10, 20]
+print(int_temps[:2],int_temps[3:]) # [10, 20] [40, 50, 60, 100]
+print(int_temps[::1]) # [10, 20, 30, 40, 50, 60, 100]
+print(int_temps[::3]) # [10, 40, 100]
+print(int_temps[100:999]) # [] - 빈리스트가 출력됨. 슬라이싱은 없는 인덱스를 넣으면 빈 값을 반환해줌.
+
+
+# <<< 인덱싱 vs 슬라이싱 >>>
+
+# 인덱싱 temps[0]은 값 하나 ( 10 )
+# temps[999]와 같은 없는 인덱스를 사용 시 에러
+
+# 슬라이싱 temps[0:2]은 리스트( [10,20] )
+# 슬라이싱은 영역을 잘라내는 역할이기 떄문에 리스트를 반환하는 것
+# temps[999] 에러가 발생하지 않음
+# 슬라이싱은 '있는 만큼'만 잘라주기 때문에 에러가 발생하지 않음
