@@ -240,3 +240,20 @@ print(list1)  # [] ->>> 빈 리스트가 됨
 list3 = ["빨강", "노랑", "초록", "파랑", "남색", "보라"]
 del list3[::2]  # 빨강, 초록, 남색을 삭제하겠다는 의미
 print(list3)  # ['노랑', '파랑', '보라']
+
+
+## 🚨🚨
+# 없는 인덱스 값 삭제 불가 >> Error 발생
+
+# list2.remove("망고스틴")
+# print(list2)     # ValueError: list.remove(x): x not in list
+# .remove() 는 없는 값을 삭제하려고 할 때 Error가 발생한다.
+
+# list1.pop(1000)
+# print(list1)       # IndexError: pop from empty list
+
+# del list1[392]
+# print(list1)  # IndexError: list assignment index out of range
+
+del list1[100:300] # 슬라이싱 할 값이 없기 때문에 그대로 유지됨 ->>>> Error가 나지 않음
+print(list1)
