@@ -54,3 +54,9 @@ print(f"type(temps[0]) : {type(int_temps[0])}") # type(temps[0]) : <class 'int'>
 # float 값이 들어있는 float_temps 리스트의 0번쨰 요소
 print(type(float_temps[0])) # <class 'float'>
 print(type(str_machines[0])) #  <class 'str'>
+
+# 퀴즈
+# mixed = ["펌프", 78, True]
+print(type(mixed[1])) # <class 'int'>
+print(type(mixed[-1])) # <class 'bool'>
+print(type(mixed)) # <class 'list'>
