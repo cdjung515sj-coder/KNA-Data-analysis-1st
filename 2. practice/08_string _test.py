@@ -27,3 +27,10 @@ a=170
 b=183
 c=162
 print(f"평균{(a+b+c)/3}")
+
+
+# 소숫점 자릿수 지정하기
+rate000 = 87.456
+print(f"{rate000:.1f}")
+print(f"{rate000:.2f}")
+print(f"{rate000:.1f}/{rate000:2f}")
