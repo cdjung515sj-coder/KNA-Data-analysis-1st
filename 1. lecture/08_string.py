@@ -279,16 +279,16 @@ print("====== count() =======")
 
 # 문자열에서 특정 문자열의 갯수 세기
 
-str = "a, b, c, d, e,a, a"
+str0 = "a, b, c, d, e,a, a"
 
 #  a 의 갯수 세기
-print(str.count("a"))  # 3
+print(str0.count("a"))  # 3
 
 #  , 의 갯수 세기
-print(str.count(","))  # 6
+print(str0.count(","))  # 6
 
 #  , 의 갯수 세기
-print(str.count(", "))  # 5  # count 로 찾는 문자열과 완전히 동일해야 갯수를 셈
+print(str0.count(", "))  # 5  # count 로 찾는 문자열과 완전히 동일해야 갯수를 셈
 
 
 # ------------------------------------
@@ -570,28 +570,28 @@ print(drinks.split())  # 인자를 보내지 않음
 # 구분자를 특정하고 싶은 경우
 fruits = "딸기,망고스틴,수박,자몽,포도,키위,사쿠란보"
 print(fruits.split(","))  # 문자열 콤마를 기준으로 분할
-#['딸기', '망고스틴', '수박', '자몽', '포도', '키위', '사쿠란보']
+# ['딸기', '망고스틴', '수박', '자몽', '포도', '키위', '사쿠란보']
 
 fruits2 = "딸기, 망고스틴, 수박, 자몽, 포도, 키위, 사쿠란보"
 print(fruits2.split(","))  # 문자열 콤마를 기준으로 분할
-#['딸기', ' 망고스틴', ' 수박', ' 자몽', ' 포도', ' 키위', ' 사쿠란보'] -> 공백 그대로 유지
+# ['딸기', ' 망고스틴', ' 수박', ' 자몽', ' 포도', ' 키위', ' 사쿠란보'] -> 공백 그대로 유지
 
 print(fruits2.split(", "))  # 문자열 콤마+공백 1칸을 기준으로 분할
-#['딸기', '망고스틴', '수박', '자몽', '포도', '키위', '사쿠란보']
+# ['딸기', '망고스틴', '수박', '자몽', '포도', '키위', '사쿠란보']
 
 # 리스트의 인덱스
 fruits_list = fruits.split(",")
 print(fruits_list)
 
 # 포도만 출력하기
-print(fruits_list[5]) # 키위
-print(fruits_list[3]) # 자몽
-print(fruits_list[-1]) # 사쿠란보
+print(fruits_list[5])  # 키위
+print(fruits_list[3])  # 자몽
+print(fruits_list[-1])  # 사쿠란보
 
 # split 횟수 제한
 num = "010-1234-1234"
 # ["010","1234-1234"] 출력하고 싶음
-print(num.split("-",1))
+print(num.split("-", 1))
 
 a = "a,b,c,d"
 print(a.split(","))
@@ -604,13 +604,13 @@ print("====== join() =======")
 # ⭐⭐⭐ "구분자".join(리스트) ⭐⭐⭐
 # 모든 요소가 합쳐져서 하나의 문자열로 반환
 
-fruits_list = ['딸기', '망고스틴', '수박', '자몽', '포도', '키위', '사쿠란보']
+fruits_list = ["딸기", "망고스틴", "수박", "자몽", "포도", "키위", "사쿠란보"]
 print("-".join(fruits_list))  # 딸기-망고스틴-수박-자몽-포도-키위-사쿠란보
 print(",".join(fruits_list))  # 딸기,망고스틴,수박,자몽,포도,키위,사쿠란보
 
 
 # 리스트 합치기 실습
-list = ['2025','01','15']
+list = ["2025", "01", "15"]
 print("-".join(list))
 
 # 변수에 "python" 문자열  pyThon 출력
@@ -621,20 +621,20 @@ word = "python"
 print(word[:2] + word.strip("py").capitalize())  # thon
 
 # 방법 2] replace
-print(word.replace("t","T"))
+print(word.replace("t", "T"))
 
 # 방법 3] 슬라이싱 + T 만 upper 사용
 print(word[:2] + word[2].upper() + word[3:])
 
 # 방법 4] 인덱싱으로 글자 하나씩 연결
-print(word[0]+word[1]+word[3].upper()+word[4]+word[5])
+print(word[0] + word[1] + word[3].upper() + word[4] + word[5])
 
 # 방법 5] 인덱싱 + strip + title
 print(word[:2] + word.strip("py").title())  # thon
 
 # 방법 6] split + join
 print(word.split("t"))  # ['py', 'hon']
-print("T".join(word.split("t"))) 
+print("T".join(word.split("t")))
 print(word[2].upper().join(word.split("t")))
 print((word[2].upper()).join(word.split("t")))
 
@@ -642,25 +642,30 @@ print((word[2].upper()).join(word.split("t")))
 # =======================================================================
 print("======== print 함수의 sep, end ==========")
 
-print("2026","07","27") # 2026 07 27 (기본적으로 공백 1칸)
+print("2026", "07", "27")  # 2026 07 27 (기본적으로 공백 1칸)
 
 # sep 속성을 사용하면 구분을 공백이 아닌 특정 문자열로 가능
-print("2026","07","27", sep="사랑해") # 2026사랑해07사랑해27
+print("2026", "07", "27", sep="사랑해")  # 2026사랑해07사랑해27
 # 공백 대신 sep 속성에 전달한 문자열이 삽입되어 이어짐
 
-print("안녕","하세") # 안녕 하세
-print("안녕","하세", end="요\n") # 안녕 하세요
+print("안녕", "하세")  # 안녕 하세
+print("안녕", "하세", end="요\n")  # 안녕 하세요
 # end 속성 사용 시 출력문 마지막에 해당 문자열이 붙어 삽입
 
 # print("안녕","하세", end="요","ㅎㅎ") # end 속성 뒤에 또 인자 넘기기 불가
-print("안녕","하세", "ㅎㅎ", end="요\n") # 안녕 하세요
+print("안녕", "하세", "ㅎㅎ", end="요\n")  # 안녕 하세요
 
 # print 함수 + 사용시 sep 과 end
-print("안녕"+"하세",end="요"+"이렇게?") # 정상 동작은 하나 사용은 자제하자~
+print("안녕" + "하세", end="요" + "이렇게?")  # 정상 동작은 하나 사용은 자제하자~
 
 # 기본적으로 print 문에는 sep으로 공백 한 칸, end로 \n 줄바꿈이 적용되어 있습니다.
 # 그러나, 개발자가 각 속성을 직접 부여할 경우, 기본값이 아닌 전달받은 속성을 사용함.
-print("이런식으로 써요", "그러나 안 보이는 기본값이 있습니다.",sep=" ",end="\n" +"라는 속성이 들어가 있습니다.")
+print(
+    "이런식으로 써요",
+    "그러나 안 보이는 기본값이 있습니다.",
+    sep=" ",
+    end="\n" + "라는 속성이 들어가 있습니다.",
+)
 
 
 # =======================================================================
@@ -675,25 +680,31 @@ print("======== split과 join은 짝궁 ==========")
 
 today = "2026/07/27"
 now = today.split("/")
-print("-".join(now)) # 2026-07-27
+print("-".join(now))  # 2026-07-27
 
 
 product = "1, NORMAL ,25.3"
-prod = product.split(",") # ['1', ' NORMAL ', '25.3']
+prod = product.split(",")  # ['1', ' NORMAL ', '25.3']
 status = prod[1].strip().lower()
-print(status) 
+print(status)
 
 # =======================================================================
 print("======== f-string ==========")
 
-name = '홍길동'
+name = "홍길동"
 age = 25
-
-
-print(f'{name}님은 {age}살입니다')
-code = 'EQP-001'
-print(f'설비 {code} 점검 완료')
+print(f"{name}님은 {age}살입니다")
+code = "EQP-001"
+print(f"설비 {code} 점검 완료")
 
 name = "PUMP_A"
-temp = 87
-print(f"설비 {name}, 온도 {temp}℃")
+temp = 36
+
+# 출력 : 설비 PUMP_A, 온도 36℃
+# 기존 방식
+print("설비 " + name + ", 온도 " + str(temp) + "도")
+
+# f-string
+print(f"설비 {name}, 온도 {temp}도")
+# 따옴표 밖에 f 작성하기
+# 변수명은 꼭 {중괄호}에 감싸기
