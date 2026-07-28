@@ -27,3 +27,13 @@ print(len(empty)) # 0 개
 int_temps_length = len(int_temps) # 변수에 7이라는 값이 할당
 print(int_temps_length) # 7
 
+# 리스트의 인덱스
+print(int_temps[0],int_temps[-1]) # 가장 첫 번째 요소, 가장 마지막 요소 값 출력
+# -1을 사용하는 이유는 최신 값은 대체로 뒤에 추가가 됨
+# 가장 최신 값은 결국 마지막 인덱스의 요소
+# len 함수를 사용해서 리스트 길이 -1 로 계산이 가능 하지만 이 작업은 번거로워 -1을 가장 많이 사용함
+
+# 없는 인덱스 호출
+# temps 리스트 길이는 7
+# print(int_temps[10]) # IndexError: list index out of range
+# 인덱스 범위를 벗어나지 않도록 유의
