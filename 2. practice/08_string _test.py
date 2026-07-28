@@ -21,3 +21,9 @@ print(len(number))
 # .count() 개수세기
 abcd = "a,b,c,d"
 print(abcd.count(","))
+
+# f-string 안에서 계산
+a=170
+b=183
+c=162
+print(f"평균{(a+b+c)/3}")
