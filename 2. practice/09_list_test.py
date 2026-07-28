@@ -54,8 +54,17 @@ print(empty)
 
 # 실습 8. 잘못된 값 제거하기
 olist = [1, 3, 5, 7, 999, 10]
-olist.remove(999) # 999 값 제거
+olist.remove(999)  # 999 값 제거
 x = olist.pop(3)
 print(x)  # 7 제거할 값 + 제거됨
 del olist[0]
-print(olist) # [3, 5, 10]
+print(olist)  # [3, 5, 10]
+
+# 실습 9. 정렬하고 탐색하기
+temps = [30, 40, 50, 30, 70, 50, 90, 30]
+temps.sort()
+print("온도 오름차순 정렬 :", temps)
+temps.reverse()
+print("온도 정렬 뒤집기 :", temps)
+print(temps.count(30))
+print(temps.index(30))
