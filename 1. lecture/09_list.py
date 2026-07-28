@@ -173,13 +173,20 @@ sum_data = data.extend(new_data)
 print(sum_data)
 
 # 함수의 반환 개념을 안 뒤에 확인할 내용 !⤵️
-print(data.extend(new_data)) 
+print(data.extend(new_data))
 # 기대 결과 : [1, 2, 3, 7, 8, 9]
 # 실제 결과 : None
 # extend() 메서드는 data라는 리스트를 "수정" 이를 반환하지 않음
 # 반환값이 없어서 print할 값이 없는 것
-print(data) # [1, 2, 3, 7, 8, 9]
+print(data)  # [1, 2, 3, 7, 8, 9]
 
+# 리스트를 수정하는 메서드는 모두 반환값이 없는가?
+print(data.append(123)) # None 
+print(data.insert(0, 123)) # None 
+print(data.extend(new_data)) # None 
+# 일단 현재 배운 메서드는 반환값이 없음
+
+# ------------------------
 
 # 정리
 # 오늘 꼭 알아야 하는 리스트 수정 메서드와 개념
@@ -188,4 +195,3 @@ print(data) # [1, 2, 3, 7, 8, 9]
 # .insert(위치, 값) : 첫 번째 인자인 위치 인덱스에 값을 삽입해 줌
 # .extend(합칠리스트) : 두 리스트를 하나의 리스트로 합체
 # 위 3가지 메서드들은 원본 리스트 자체를 수정함
-
