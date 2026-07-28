@@ -20,3 +20,17 @@ last = list6[-1]
 sum = first+last
 print(sum)
 print(sum/2)
+
+# 실습 4. 슬라이싱으로 구간 자르기
+temps = [10,20,30,40,50,60,70,80,90,100]
+print(temps[:3])
+print(temps[-3:])
+print(len(temps[:3]),len(temps[-3:]))
+
+# 실습 5. 데이터를 두 구간으로 나누기
+list12 = [1,2,3,4,5,6,7,8,9,10,11,12]
+first = list12[:6]
+second = list12[6:]
+print(first)
+print(second)
+print(len(first),len(second))
