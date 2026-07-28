@@ -47,7 +47,15 @@ print(240 in temps)  # 존재하지 않음 확인!
 # 실습 7. 측정값 추가하기
 empty = []
 empty.append(999)
-empty.insert(0,3)
+empty.insert(0, 3)
 print(empty)
-empty.extend([12,33])
+empty.extend([12, 33])
 print(empty)
+
+# 실습 8. 잘못된 값 제거하기
+olist = [1, 3, 5, 7, 999, 10]
+olist.remove(999) # 999 값 제거
+x = olist.pop(3)
+print(x)  # 7 제거할 값 + 제거됨
+del olist[0]
+print(olist) # [3, 5, 10]
