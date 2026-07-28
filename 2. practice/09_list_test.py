@@ -43,3 +43,11 @@ print(i)  # 5 -> 0부터 시작해서 5번째에 240 존재 확인
 temps[i] = 24  # 5번째에 있는 240을 24로 변환
 print(temps)
 print(240 in temps)  # 존재하지 않음 확인!
+
+# 실습 7. 측정값 추가하기
+empty = []
+empty.append(999)
+empty.insert(0,3)
+print(empty)
+empty.extend([12,33])
+print(empty)
