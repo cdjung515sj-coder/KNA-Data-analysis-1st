@@ -84,3 +84,19 @@ print(int_temps[100:999]) # [] - 빈리스트가 출력됨. 슬라이싱은 없�
 # 슬라이싱은 영역을 잘라내는 역할이기 떄문에 리스트를 반환하는 것
 # temps[999] 에러가 발생하지 않음
 # 슬라이싱은 '있는 만큼'만 잘라주기 때문에 에러가 발생하지 않음
+
+
+# 인덱스로 특정 값 바꾸기 // 문자열과 다름
+# int_temps = [10, 20, 30, 40, 50, 60, 100]
+
+print("원본 :", int_temps) # 원본 : [10, 20, 30, 40, 50, 60, 100]
+int_temps[2] = 999
+print("2번 인덱스 값 변경 결과 :", int_temps) # 2번 인덱스 값 변경 결과 : [10, 20, 999, 40, 50, 60, 100]
+
+# in (존재 확인)
+# str_machines = ["펌프", "압축기", "모터"]
+print("펌프" in str_machines) # True
+print("펌프" not in str_machines) # False
+
+print("프레스" in str_machines) # False
+print("프레스" not in str_machines) # True
