@@ -37,3 +37,20 @@ print(int_temps[0],int_temps[-1]) # 가장 첫 번째 요소, 가장 마지막 �
 # temps 리스트 길이는 7
 # print(int_temps[10]) # IndexError: list index out of range
 # 인덱스 범위를 벗어나지 않도록 유의
+
+# 리스트의 자료형
+print("========== 리스트의 자료형 ==========")
+
+# temps 리스트 자체
+print(f"temps : {int_temps}") # temps : [10, 20, 30, 40, 50, 60, 100]
+print(f"type(temps) : {type(int_temps)}") # type(temps) : <class 'list'>
+
+# temps 리스트 0번째 인덱스 요소
+print(f"temps[0] : {int_temps[0]}") # temps[0] : 10
+print(f"type(temps[0]) : {type(int_temps[0])}") # type(temps[0]) : <class 'int'>
+
+
+# 다른 자료형의 값이 들어있는 리스트의 요소 타입
+# float 값이 들어있는 float_temps 리스트의 0번쨰 요소
+print(type(float_temps[0])) # <class 'float'>
+print(type(str_machines[0])) #  <class 'str'>
