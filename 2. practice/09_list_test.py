@@ -34,3 +34,12 @@ second = list12[6:]
 print(first)
 print(second)
 print(len(first),len(second))
+
+# 실습 6. 값 찾아 바꾸기
+temps = [10,20,30,40,50,240,70,80,90,100]
+print(240 in temps) 
+i = temps.index(240)
+print(i) # 5 -> 0부터 시작해서 5번째에 240 존재 확인
+temps[i] = 24 # 5번째에 있는 240을 24로 변환
+print(temps)
+print(240 in temps) # 존재하지 않음 확인!
