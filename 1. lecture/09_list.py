@@ -100,3 +100,15 @@ print("펌프" not in str_machines) # False
 
 print("프레스" in str_machines) # False
 print("프레스" not in str_machines) # True
+
+# 특정 값의 인덱스 찾기
+# 리스트.index(찾고자하는 요소)
+# str_machines = ["펌프", "압축기", "모터"]
+
+i = str_machines.index("압축기") 
+print(i) # 1 출력 => 1번 값에 압축기 있다 ~ 알려줌
+
+# .index() 메서드는 리스트에서 가장 처음 등장하는 인덱스만 반환함
+str_machines2 = ["펌프", "압축기", "모터", "압축기"]
+i2 = str_machines2.index("압축기")
+print(i2) # 1, 3 인덱스 값이 모두 동일하지만, 1로 출력. 첫 번쨰로 찾은 값만 알려줌
