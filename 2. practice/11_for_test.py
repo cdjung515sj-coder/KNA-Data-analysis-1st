@@ -86,7 +86,8 @@ list = ["안녕", "hi", "hi", "안녕", "hi", "안녕"]
 for index, value in enumerate(list):
     print(f"for index, value in enumerate(list) : {value}")
 
-for i in range(len(list)):
+list_len = int(len(list))
+for i in range(len(list_len)):
     print(f"for i in range(len(list)) : {list[i]}")
 
 # 위 두가지는 동일한 작동을 함
