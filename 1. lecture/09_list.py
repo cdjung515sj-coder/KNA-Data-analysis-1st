@@ -169,7 +169,12 @@ print(nums)  # [1, 2, 3, 333, 4, 5, 999, 111]
 # 다른 리스트의 값들을 "풀어서" 이어붙임
 data = [1, 2, 3]
 new_data = [7, 8, 9]
+data = data + new_data
+print(data)
+data += new_data
+print(data)
 sum_data = data.extend(new_data)
+print(data)
 print(sum_data)
 
 # 함수의 반환 개념을 안 뒤에 확인할 내용 !⤵️
