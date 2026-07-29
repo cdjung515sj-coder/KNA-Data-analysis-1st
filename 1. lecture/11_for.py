@@ -55,9 +55,10 @@ total = 0
 for i in range(1, 6):
     total += i  # 기존 값에 i를 더해 재할당
     # total = total + 1
-print("합계:", total)
+print("합계:", total)  # 1 + 2 + 3 + 4 + 5 = 15
 
 # for문 안에 누적변수 선언 시 total = 0
+# 누적 변수 초기화 => 범위에서 계속 0으로 돌아가서 결국 마지막 번호 값이 출력됨.
 for i in range(1, 6):
     total2 = 0  # 반복을 돌 때마다 새롭게 변수에 값이 0으로 할당이 됨
     print("total2 = 0 시 total2에 할당된 값 :", total2)
@@ -65,3 +66,26 @@ for i in range(1, 6):
     total2 += i
     print("total2 += i 후의 total2에 할당된 값 :", i)
 print("합계:", total2)  # 가장 마지막 i인 5가 출력이 되는 것 !!
+
+# 번외
+if 3 == 3:
+    hi = "안녕"
+print(hi)  # 안녕
+# python에서는 if 문 안의 변수도 어디서든 호출 가능한 변수로 선언됨.
+
+# 1~15 사이의 4의 배수만 누적
+total3 = 0
+for i in range(1, 16):
+    print(f"i 범위 : {i}")
+    if i % 4 == 0:
+        print(f"범위 안의 4의 배수 값 : {i}")
+        total3 += i
+        print(f"total3 값 누적 : {total3}")
+print(f"1~15 사이의 4의 배수만 누적 결과 : {total3}")  # 4 + 8 + 12 = 24
+
+# 개수 세기 패턴
+count = 0
+for i in range(1, 11):  # 범위는 1~10
+    if i > 5:  # 5보다 큰 i 값은? 6,7,8,9,10
+        count += 1  # 만족시 증가됨
+print(f"5보다 큰 숫자는 몇개? : {count}")
