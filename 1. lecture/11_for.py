@@ -140,3 +140,9 @@ for idx, t in enumerate(temps):
 
 # i와 idx 차이는?
 # i는 지금 내가 시작하는 위치를 알려주는 친구
+
+for dan in range(2, 20): # 바깥: 2단부터 19단까지
+    print(f"=== {dan}단 ===") # <--- 각 단이 시작하기 전에 단 제목 출력
+    for su in range(1, 10): # 안쪽: 1부터 9까지 곱하기
+        print(dan, "×", su, "=", dan * su)
+    print("---") # 한 단 끝마다 구분선
