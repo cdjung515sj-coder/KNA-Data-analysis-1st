@@ -34,10 +34,21 @@ print("게임이 종료되었습니다.")
 # 이상한 값 입력 시 "다시 입력하세요" 출력
 
 color = input("신호등 색을 입력해주세요.(빨간색, 초록색만 입력 가능) :")
-if color ==("초록색"):
+if color =="초록색":
     print("건너세요.")
-elif color == ("빨간색"):
+elif color == "빨간색":
     print("기다리세요.")
 else :
     print("다시 입력해주세요.")
 
+# or 사용 + if 문 중첩
+if color == "초록색" or color == "빨간색":
+    # color가 "초록색"이거나 "빨간색"일 때만 실행
+    if color == "초록색":
+        print("건너세요") # 중첩 if문은 들여쓰기 더더욱 주의
+    # if color == "빨간색": # else문과 동일하게 동작
+        # print("기다리세요") # 하지만 else를 사용하는게 효율적
+    else:
+        print("기다리세요")
+else : 
+    print("다시 입력하세요")
