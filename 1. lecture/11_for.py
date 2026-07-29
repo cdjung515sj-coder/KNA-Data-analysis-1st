@@ -35,22 +35,33 @@ for i in range(10, 0, -2):
     print(i)
 
 for i in range(0, 10, -2):
-    print(i)               
+    print(i)
     # 동작 안함. 시작값인 0에서 -2를 했을 때 끝 값이 포함되지 않아서 그대로 반복문 종료
 
 
 # "끝" 값의 의미
 for i in range(11):
-    print(i) # 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10  => 총 11번 출력
+    print(i)  # 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10  => 총 11번 출력
 
 for i in range(0, 11, 3):
-    print(i) # 0, 3 ,6, 9 => 총 4번
+    print(i)  # 0, 3 ,6, 9 => 총 4번
     # range 함수에 전달한 두 번째 인자인 끝 값 11은 반복 횟수가 아님
     # 반복을 수행할 범위
 
 
+# 누적변수
+total = 0
 
+for i in range(1, 6):
+    total += i  # 기존 값에 i를 더해 재할당
+    # total = total + 1
+print("합계:", total)
 
-
-
-
+# for문 안에 누적변수 선언 시 total = 0
+for i in range(1, 6):
+    total2 = 0  # 반복을 돌 때마다 새롭게 변수에 값이 0으로 할당이 됨
+    print("total2 = 0 시 total2에 할당된 값 :", total2)
+    print("현재 i의 값 :", i)
+    total2 += i
+    print("total2 += i 후의 total2에 할당된 값 :", i)
+print("합계:", total2)  # 가장 마지막 i인 5가 출력이 되는 것 !!
