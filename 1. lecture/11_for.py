@@ -120,16 +120,16 @@ for idx, t in enumerate(temps):
 
 for a, b in enumerate(temps):
     print(f"a: {a}, b: {b}")
-    # a: 0, b: 33 
-    # a: 1, b: 23 
-    # a: 2, b: 45 
-    # a: 3, b: 32 
+    # a: 0, b: 33
+    # a: 1, b: 23
+    # a: 2, b: 45
+    # a: 3, b: 32
     # a: 4, b: 28
 
 # for idx , t in enumerate(temps):
 # 위와 같이 2개의 변수를 전달하면
 # enumerate가 temps 리스트를 순회하면서
-# 반환해준 (인덱스, 해당인덱스의 값)을 
+# 반환해준 (인덱스, 해당인덱스의 값)을
 # 각자 idx에 인덱스 값을 할당, t에 해당 인덱스의 값을 할당
 # 두 개의 값을 바로 사용할 수 있게 해줌
 
@@ -141,8 +141,53 @@ for idx, t in enumerate(temps):
 # i와 idx 차이는?
 # i는 지금 내가 시작하는 위치를 알려주는 친구
 
-for dan in range(2, 20): # 바깥: 2단부터 19단까지
-    print(f"=== {dan}단 ===") # <--- 각 단이 시작하기 전에 단 제목 출력
-    for su in range(1, 10): # 안쪽: 1부터 9까지 곱하기
+for dan in range(2, 20):  # 바깥: 2단부터 19단까지
+    print(f"=== {dan}단 ===")  # <--- 각 단이 시작하기 전에 단 제목 출력
+    for su in range(1, 10):  # 안쪽: 1부터 9까지 곱하기
         print(dan, "×", su, "=", dan * su)
-    print("---") # 한 단 끝마다 구분선
+    print("---")  # 한 단 끝마다 구분선
+
+# 2단 출력
+for su in range(1, 10):
+    print(f"2 x {su} = {2*su}")
+
+# 1~5단 출력하기
+# 필요한 변수 : 2개 (몇 단을 출력할 것인지, 거기에 얼마나 곱할건지)
+# 몇 단을 출력할건지 : 1~5
+# 거기에 얼마나 곱할건지 : 1~9
+# for문 중첩을 사용
+# 1단을 유지한 상태에서 곱할 값은 커져야 함
+
+# 단수를 유지하고 안에서 또 점점 커지는 변수가 있어야 하니
+# 바깥 for문은 단수를 늘리고
+# 안쪽 for문은 곱할 수를 늘리도록 구성
+
+for i in range(1, 6):  # 1~5 단까지 반복
+    print(f"----- {i}단 시작 -----")
+    for j in range(1, 10):  # 1단에서 9단까지 곱하고 반복 종료
+        print(f"{i} X {j} = {i*j}")  # 가장 첫 반복은 1 X 1 = 1
+    print(f"----- {i}단 끝 -----")
+
+# 1~9단 사이 2의 배수 단만 구구단 출력
+# 2, 4, 6, 8 단만 출력
+# range에 간격 전달
+# if문 사용
+
+for dan in range(2, 10, 2):  # 2부터 9까지 2씩 증가 (2, 4, 6, 8단)
+    print(f"=== {dan}단 ===")
+    for su in range(1, 10):
+        print(dan, "×", su, "=", dan * su)
+    print("---")
+
+for dan in range(2, 10):
+    if dan % 2 == 0:  # dan이 2의 배수(짝수)일 때만 실행
+        print(f"=== {dan}단 ===")
+        for su in range(1, 10):
+            print(dan, "×", su, "=", dan * su)
+        print("---")
+
+for i in range(2, 10, 2):
+    print(f"---- {i}단 ----")
+    for j in range(1, 10):
+        print(f"{i} x {j} = {i*j}")
+    print("==============")
