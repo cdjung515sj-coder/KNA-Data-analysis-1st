@@ -89,3 +89,54 @@ for i in range(1, 11):  # 범위는 1~10
     if i > 5:  # 5보다 큰 i 값은? 6,7,8,9,10
         count += 1  # 만족시 증가됨
 print(f"5보다 큰 숫자는 몇개? : {count}")
+
+
+# # enumerate(): 낱낱이 세다라는 의미
+# 순서가 있는 자료형(list, set, tuple, dictionary, string)을 입력으로 받았을 때, 인덱스와 값을 포함하여 리턴
+# for문과 함께 자주 사용됨
+# 인덱스와 값을 동시에 접근하면서 루프를 돌리고 싶을 때 사용
+temps = [33, 23, 45, 32, 28]
+
+for t in enumerate(temps):
+    print(t)
+    # (0, 33)
+    # (1, 23)
+    # (2, 45)
+    # (3, 32)
+    # (4, 28)
+# 범위를 지정하지 않아도 enumerate()에 전달한 리스드의 모든 요소 순환
+# 문제는 형식이 (인덱스, 해당 인덱스 요소 값)로 출력
+# enumerate를 사용할 떄는 변수를 2개 전달
+
+
+for idx, t in enumerate(temps):
+    print(f"idx: {idx}, t: {t}")
+    # idx: 0, t: 33
+    # idx: 1, t: 23
+    # idx: 2, t: 45
+    # idx: 3, t: 32
+    # idx: 4, t: 28
+
+
+for a, b in enumerate(temps):
+    print(f"a: {a}, b: {b}")
+    # a: 0, b: 33 
+    # a: 1, b: 23 
+    # a: 2, b: 45 
+    # a: 3, b: 32 
+    # a: 4, b: 28
+
+# for idx , t in enumerate(temps):
+# 위와 같이 2개의 변수를 전달하면
+# enumerate가 temps 리스트를 순회하면서
+# 반환해준 (인덱스, 해당인덱스의 값)을 
+# 각자 idx에 인덱스 값을 할당, t에 해당 인덱스의 값을 할당
+# 두 개의 값을 바로 사용할 수 있게 해줌
+
+for idx, t in enumerate(temps):
+    print(f"현재 인덱스: {idx}")
+    print(f"{idx}인덱스의 값: {t}")
+    print(f"{idx+1}번째 반복 끝")
+
+# i와 idx 차이는?
+# i는 지금 내가 시작하는 위치를 알려주는 친구
