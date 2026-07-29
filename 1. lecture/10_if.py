@@ -108,3 +108,41 @@ else:
 
 print("체온 확인 완료")
 
+
+# elif 순서
+
+score = 50
+
+if score >= 90:
+    print("우수")
+elif score >= 70:
+    print("보통")
+elif score >= 50:
+    print("미흡")
+else:
+    print("비상")
+# 정상적으로 미흡이 잘 출력됨
+
+score = 100
+
+if score >= 90:
+    print("우수")
+elif score >= 70:
+    print("보통")
+elif score >= 50:
+    print("미흡")
+else:
+    print("비상")
+# 100 이기 때문에 우수가 출력되어야 하나, 코드의 순서가 적합하지 않아 "미흡"이 출력됨.
+
+# if문은 줄바꿈을 하지 않아도 : 을 ㅣ준으로 동작 자체는 가능
+# 하지만 줄바꿈해서 가독성을 높이길 권장
+# tab은 아직 위의 코드가 끝나지 않았고 한 줄이라는 것을 명시
+
+# score = 82
+# if score >= 90: print("우수")
+# elif score >= 70: print("보통")
+# elif score >= 50: print("미흡")
+# else: print("비상")
+
+
