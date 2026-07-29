@@ -159,7 +159,7 @@ else:
 
 # not 연산자
 # not은 괄호로 감싸서 사용한다.
-if not(3 == 5):
+if not (3 == 5):
     print("출력됨")
 # 3과 5는 같지 않으니 False가 되나
 # 앞에 not 이 있어서 False를 True로 뒤집어 if가 인식
