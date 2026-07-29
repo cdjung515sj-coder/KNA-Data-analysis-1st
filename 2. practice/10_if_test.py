@@ -34,25 +34,25 @@ print("게임이 종료되었습니다.")
 # 이상한 값 입력 시 "다시 입력하세요" 출력
 
 color = input("신호등 색을 입력해주세요.(빨간색, 초록색만 입력 가능) :")
-if color =="초록색":
+if color == "초록색":
     print("건너세요.")
 elif color == "빨간색":
     print("기다리세요.")
-else :
+else:
     print("다시 입력해주세요.")
 
 # or 사용 + if 문 중첩
 if color == "초록색" or color == "빨간색":
     # color가 "초록색"이거나 "빨간색"일 때만 실행
     if color == "초록색":
-        print("건너세요") # 중첩 if문은 들여쓰기 더더욱 주의
+        print("건너세요")  # 중첩 if문은 들여쓰기 더더욱 주의
     # if color == "빨간색": # else문과 동일하게 동작
-        # print("기다리세요") # 하지만 else를 사용하는게 효율적
+    # print("기다리세요") # 하지만 else를 사용하는게 효율적
     else:
         print("기다리세요")
     # 사용자 입력값이 "초록색" 이거나 "빨간색"일 때 무조건 출력
     print("이것은 사용자 입력값이 '초록색' 이거나 '빨간색'일 때 무조건 출력됩니다.")
-else : 
+else:
     print("다시 입력하세요")
 
 
@@ -75,3 +75,17 @@ if id == your_id and pw == your_pw:
     print("로그인 성공")
 else:
     print("로그인 실패")
+
+# 실습 5. 세 값으로 설비 종합 상태 판정하기
+temp = int(input("온도 :"))
+vib = float(input("진동 :"))
+cur = int(input("전류 :"))
+if temp > 80 or vib > 4.0:
+    print("위험 : 즉시 정지")
+else:
+    if cur > 60 and temp > 70:
+        print("주의 : 부하 점검")
+    elif vib > 2.5:
+        print("주의 : 진동 관찰")
+    else:
+        print("정상")
