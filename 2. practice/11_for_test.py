@@ -66,3 +66,27 @@ for num in range(1, int(bounds) + 1):
 
 
 print(f"369 결과: {l}")
+
+
+# 안녕의 인덱스 출력
+# 이를 위해서는 값을 비교하기 위해 모든 리스트의 값이 필요
+# 그리고 그 값의 인덱스를 알아야 출력
+list = ["안녕", "hi", "hi", "안녕", "hi", "안녕"]
+
+# 리스트의 모든 요소에 접근을 해야하는 경우
+# python이 반복문에서 이를 쉽게 할 수 있도록
+# enumerate라는 내장 함수 제공
+# enumerate은 리스트의 모든 요소를 앞에서부터 순서대로 하나씩 찝어가며 접근함
+# 접근해서 각자의 인덱스와 그 값을 뽑아줌 ---> 그래서 돌려주는 값은 2개가 돼!
+# 값을 두 개 받으니 우리도 변수를 2개 준비하면 각 변수에 값이 쏙쏙 드가겠죠?
+# 돌려주는 순서는 << 인덱스, 값 >>
+# 그렇기 때문에 우리는 enumerate를 사용할 떄
+# for 뒤에 변수를 두 개 전달함.
+
+for index, value in enumerate(list):
+    print(f"for index, value in enumerate(list) : {value}")
+
+for i in range(len(list)):
+    print(f"for i in range(len(list)) : {list[i]}")
+
+# 위 두가지는 동일한 작동을 함
