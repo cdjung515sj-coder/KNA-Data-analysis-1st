@@ -79,3 +79,34 @@ for i in temps:
     if i > 30:
         empty.append(i)
 print(f"3temps > 30 : {empty}, 개수 : {len(empty)}")
+
+# 실습 5. 값을 가공해 새 리스트 만들기
+temps_F = [13, 52, 63, 74, 58, 69, 26]
+c = []
+
+for i in temps_F:
+    calculate = round(i * 1.8 + 32, 1)
+    c.append(calculate)
+print(f"{c}℃")
+
+
+# 실습 6. 센서 데이터 종합 분석하기
+temps = [1, 2, 3, 4, 5, 6, 7, 10, 20, 30, 40, 50, 60, 70, 80]
+Cumulative = 0
+new = []
+new_total = 0
+
+for i in temps:
+    Cumulative += i
+
+for j in temps:
+    if j >30:
+        new.append(j)
+
+for k in new:
+    new_total += k
+
+print(f"전체 평균 : {Cumulative/len(temps):.1f}")
+print(f"고온 개수 : {len(new)}")
+print(f"고온 평균 : {new_total/len(new):.1f}")
+
