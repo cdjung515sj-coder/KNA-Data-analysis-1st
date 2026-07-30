@@ -83,3 +83,24 @@ for i in range(n):
          break
      else:
          print("정상상태")
+
+# =================================
+
+# 최댓값 찾기
+first = int(input("1번째 입력값 : "))
+
+# 첫 번째 입력값은 자동으로 최댓값이 됨 (비교할 다른 값이 없기 때문)
+max_value = first
+
+# for 문을 사용해서 사용자 입력을 4번 받고
+# 입력 받은 값 중에서 가장 큰 값을 출력
+
+for i in range(4):
+    v = int(input(f"{i + 1} 번째 입력: "))
+
+    # max_value 에는 현 시점 최댓값이 들어있어
+    # v에는 방금 사용자가 입력한 값이 들어있어
+    # max_value와 v의 값을 비교해 더 큰 값을 max_value에 재할당
+    if v > max_value:
+        max_value = v
+print(f"최댓값 : {max_value}") # for 반복문 종료 후 최종 최댓값 출력
