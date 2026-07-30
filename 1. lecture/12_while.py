@@ -71,3 +71,15 @@ while True:
         break
     print(f"입력받을 값 : {x}")
 print(f"입력을 종료합니다.")
+
+
+n = int(input("횟수 : "))
+
+for i in range(n):
+     v = int(input("측정값 : "))
+     if v >80:
+         print("이상 발생")
+         print("가동 횟수 : ",n)
+         break
+     else:
+         print("정상상태")
