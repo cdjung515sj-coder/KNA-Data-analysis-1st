@@ -69,3 +69,13 @@ for i in temps:
         count += 1
         print(f"count: {count}, temp = {total}")
 print(f"고온 평균:{total/count}")
+
+
+# 실습 4 조건에 맞는 값으로 새 리스트 만들기
+temps = [1, 2, 3, 4, 5, 6, 7, 10, 20, 30, 40, 50, 60, 70, 80]
+empty = []
+
+for i in temps:
+    if i > 30:
+        empty.append(i)
+print(f"3temps > 30 : {empty}, 개수 : {len(empty)}")
