@@ -29,3 +29,43 @@ while True:
     # 4. 입력값이 33보다 큰 경우
     else:
         print("Down")
+
+
+# 실습 2. 플래그로 조건 만족 값 검색하기
+
+found = False
+n = int(input("횟수 : "))
+
+for i in range(n):
+    v = int(input("측정값 : "))
+    if v > 80:
+        found = True
+        break
+if found:
+    print("found")
+else:
+    print("None")
+
+# 실습 조건에 맞는 값만 출력하기
+temps = [10, 20, 30, 40, 50, 60, 70]
+for i in temps:
+    if i >= 30:
+        print(f"고온 : {i}")
+
+# 두 조건을 모두 만족하는 값 고르기
+hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60]
+for i in hours:
+    if i >= 5 and i <= 10:
+        print(i)
+
+# 조건에 맞는 값만 골라 평균 구하기
+temps = [1, 2, 3, 4, 5, 6, 7, 10, 20, 30, 40, 50, 60, 70, 80]
+total = 0
+count = 0
+
+for i in temps:
+    if i > 30:
+        total += i
+        count += 1
+        print(f"count: {count}, temp = {total}")
+print(f"고온 평균:{total/count}")
