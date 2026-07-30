@@ -118,3 +118,18 @@ for i in range(4):
     if v > max_value:
         max_value = v
 print(f"최댓값 : {max_value}")  # for 반복문 종료 후 최종 최댓값 출력
+
+
+
+#  흐름 표를 보고 코드 작성
+total = 0
+
+for i in range(3):
+    v = int(input(f"{i+1} 회차 값 :"))
+    if v > 5:
+        total += v
+        print("참")
+    else:
+        print("거짓")
+print(f"합계 : {total}")
+        
