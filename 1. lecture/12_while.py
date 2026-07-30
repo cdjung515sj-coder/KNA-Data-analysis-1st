@@ -76,13 +76,13 @@ print(f"입력을 종료합니다.")
 n = int(input("횟수 : "))
 
 for i in range(n):
-     v = int(input("측정값 : "))
-     if v >80:
-         print("이상 발생")
-         print("가동 횟수 : ",n)
-         break
-     else:
-         print("정상상태")
+    v = int(input("측정값 : "))
+    if v > 80:
+        print("이상 발생")
+        print("가동 횟수 : ", n)
+        break
+    else:
+        print("정상상태")
 
 # =================================
 
@@ -103,4 +103,18 @@ for i in range(4):
     # max_value와 v의 값을 비교해 더 큰 값을 max_value에 재할당
     if v > max_value:
         max_value = v
-print(f"최댓값 : {max_value}") # for 반복문 종료 후 최종 최댓값 출력
+print(f"최댓값 : {max_value}")  # for 반복문 종료 후 최종 최댓값 출력
+
+
+first = int(input("1번째 입력값 : "))
+max_value = first
+for i in range(4):
+    v = int(input(f"{i + 2} 번째 입력: "))
+    # 위에서 1번째 입력을 받고, i는 0 부터 시작하기 때문에 2를 더해서 출력
+
+    # max_value 에는 현 시점 최댓값이 들어있어
+    # v에는 방금 사용자가 입력한 값이 들어있어
+    # max_value와 v의 값을 비교해 더 큰 값을 max_value에 재할당
+    if v > max_value:
+        max_value = v
+print(f"최댓값 : {max_value}")  # for 반복문 종료 후 최종 최댓값 출력
