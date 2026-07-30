@@ -27,11 +27,11 @@ print(star)
 
 # ==========================================
 
-star = ""
+# star = ""
 
-for i in range(10, 0, -1):
-    if 
-        for j in range(0, i):
-        star += "⭐"
-    star += "\n"
-print(star)
+# for i in range(10, 0, -1):
+#     if 
+#         for j in range(0, i):
+#         star += "⭐"
+#     star += "\n"
+# print(star)
