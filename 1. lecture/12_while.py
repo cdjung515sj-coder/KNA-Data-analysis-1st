@@ -132,4 +132,9 @@ for i in range(3):
     else:
         print("거짓")
 print(f"합계 : {total}")
-        
+
+
+list = [4,7,6]
+
+for i in range(len(list)):
+    print(list[i])
