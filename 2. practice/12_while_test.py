@@ -92,12 +92,13 @@ print(f"{c}℃")
 
 # 실습 6. 센서 데이터 종합 분석하기
 temps = [1, 2, 3, 4, 5, 6, 7, 10, 20, 30, 40, 50, 60, 70, 80]
-Cumulative = 0
-new = []
-new_total = 0
+cumulative = 0
 
 for i in temps:
-    Cumulative += i
+    cumulative += i
+
+new = []
+new_total = 0
 
 for j in temps:
     if j >30:
@@ -106,7 +107,7 @@ for j in temps:
 for k in new:
     new_total += k
 
-print(f"전체 평균 : {Cumulative/len(temps):.1f}")
+print(f"전체 평균 : {cumulative/len(temps):.1f}")
 print(f"고온 개수 : {len(new)}")
 print(f"고온 평균 : {new_total/len(new):.1f}")
 
