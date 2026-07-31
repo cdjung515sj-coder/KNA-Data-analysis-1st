@@ -29,7 +29,7 @@ danger_list = []
 
 print("""
 ======================================== 
-| | | | 설비 종합 모니터링 리포트
+        설비 종합 모니터링 리포트
 ========================================
 """)
 for i, (name, temp, vib) in enumerate(sensors, 1):
@@ -57,3 +57,8 @@ print(f"평균 온도: {total_temp/total:.1f}℃")
 print(f"최고 온도 설비: {temp_max[0][1]} ({temp_max[0][0]}℃ ) ")
 print(f"위험 설비 목록: {danger_list}")
 print("\n=======================================")
+
+if danger_count >= 1:
+    print("⚠️ 즉시 점검 요망")
+else:
+    print("✅ 전 설비 안정")
