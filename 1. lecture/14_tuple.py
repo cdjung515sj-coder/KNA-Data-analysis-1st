@@ -124,3 +124,49 @@ print(tup.index("warning"))  # 2
 print(tup.index("warning"))  # ValueError: tuple.index(x): x not in tuple
 
 
+# =======================================
+
+# 튜플 리스트
+# 리스트 안에 튜플을 담은 것을 표현
+# for 문으로 리스트를 사용해서 리스트 내부의 튜플에 접근하고 튜플에 담긴 값을 사용할 수 있음
+
+# 언패킹을 사용해서 접근한 튜플 내부의 값을 변수에 바로 할당해서 접근
+
+hour_13 = [("모터온도", 77), ("모터진동", 0.2), ("모터압력", 91)]
+now = 0
+
+for name, value in hour_13:
+    now += 1
+    print(now, "번째 반복")
+    print(f"name : {name}, value : {value}")
+
+# =======================================
+
+temps_13 = [
+    ("box_001", 81),
+    ("box_002", 88),
+    ("box_003", 95),
+    ("box_004", 89),
+    ("box_005", 90),
+    ("box_006", 100),
+]
+
+warning = 90  # 변수로 지정한 이유가 숫자가 변동될 수 있어서 지정한겨~
+
+for name, temp in temps_13:
+    if temp >= warning:
+        print("🚨", name, "설비 온도 이상")
+
+# 리스트 안의 튜플 값 갯수가 늘어나면 for문에서 변수를 여러 개 작성하면 됨
+
+tup_list = [
+    ("일", "one", 1, "1"),
+    ("이", "two", 2, "2"),
+]
+
+# ⚠️⚠️ for 문에서도 언배킹 할 때는 무조건 튜플의 값 갯수와 for문의 변수 갯수 통일할 것!⚠️⚠️
+# 통일하지 않을 경우 Error 발생
+for kor_str, eng_str, num, num_str in tup_list:
+    print(f"kor_str: {kor_str}, eng_str: {eng_str}, num: {num}, num_str: {num_str}")
+
+
