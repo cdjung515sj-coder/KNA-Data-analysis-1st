@@ -77,7 +77,7 @@ unpacking = (
     3,  # 변수 three)
 )
 
-unpacking = one, two, three
+# unpacking = one, two, three
 # one,two,three 라는 알 수 없는 변수를
 # unpacking 변수에 할당하겠다는 의미
 # 동작하지 않음
@@ -115,7 +115,6 @@ tup = ("normal", "normal", "worning", "normal", "worning")
 print(len(tup))  # 5
 
 # 특정 값의 갯수 세기
-print(tup.count("warning"))  # 2
 print(tup.count("warning"))  # 2
 
 # 특정 값이 처음 나온 인덱스 찾기
@@ -169,4 +168,21 @@ tup_list = [
 for kor_str, eng_str, num, num_str in tup_list:
     print(f"kor_str: {kor_str}, eng_str: {eng_str}, num: {num}, num_str: {num_str}")
 
+
+# =============================================================
+
+# 튜플 리스트 정렬
+# sorted()를 사용하여 튜플의 특정 값 기준으로 리스트 정렬
+
+temps_13 = [
+    (81, "box_001"),
+    (88, "box_002"),
+    (95, "box_003"),
+    (89, "box_004"),
+]
+
+# sorted()는 원본 배열을 수정하지 않고 새 리스트를 반환함.
+hot = sorted(temps_13, reverse=True)
+print(hot)  # [(95, 'box_003'), (89, 'box_004'), (88, 'box_002'), (81, 'box_001')]
+print(f"원본 : {temps_13}")  # 원본 : [(81, 'box_001'), (88, 'box_002'), (95, 'box_003'), (89, 'box_004')] // 정렬 적용 x
 
