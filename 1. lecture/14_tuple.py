@@ -177,7 +177,7 @@ for kor_str, eng_str, num, num_str in tup_list:
 temps_13 = [
     (81, "box_001"),
     (88, "box_002"),
-    (95, "box_003"),
+    (98, "box_003"),
     (89, "box_004"),
 ]
 
