@@ -22,8 +22,27 @@ sensors = [
 
 warning = 90
 for name, value in sensors:
-    print(name,value)
+    print(name, value)
 
 for name, value in sensors:
     if value > warning:
         print(f"{name} warning!!")
+
+
+# 실습 3. 중첩 튜플로 센서 위치 관리
+sensors = [
+    ("모터온도", 77, (1, 2)),
+    ("모터진동", 10, (3, 4)),
+    ("모터압력", 91, (5, 6)),
+    ("회전속도", 1133, (7, 8)),
+    ("유량", 42, (9, 10)),
+]
+
+for name, value, i in sensors:
+    x, y = i
+    print(f"{name} | 위치 : {x,y}")
+
+for name, value, i in sensors:
+    x, y = i
+    if x <= 5:
+        print("x가 5이하 :",name)
