@@ -46,7 +46,7 @@ print("type(sensor): ", type(sensor))  # <class 'tuple'>
 
 
 # 튜플의 인덱스
-print(sensor[0])  # 모터온도
+# print(sensor[0])  # 모터온도
 
 # 튜플의 슬라이싱
 s = (
@@ -105,3 +105,22 @@ print(f"threee : {three}")
 # one : 11
 # two : 22
 # threee : 33
+
+
+# =======================================
+
+tup = ("normal", "normal", "worning", "normal", "worning")
+
+# 튜플의 길이
+print(len(tup))  # 5
+
+# 특정 값의 갯수 세기
+print(tup.count("warning"))  # 2
+print(tup.count("warning"))  # 2
+
+# 특정 값이 처음 나온 인덱스 찾기
+print(tup.index("warning"))  # 2
+# 찾고자 하는 값이 없으면 Error 발생
+print(tup.index("warning"))  # ValueError: tuple.index(x): x not in tuple
+
+
