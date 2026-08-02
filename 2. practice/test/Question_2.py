@@ -13,6 +13,24 @@ LIMIT = 100  # 임계값 (100 초과 시 즉시 경고)
 #         값은 리스트에 .append() 로 모으기
 
 
+value_list = []
+warning_count = 0
+
+print("=== 실시간 측정값 입력 시스템 ===")
+print("측정값을 입력하세요. 종료하려면 q 입력.")
+while True:
+    user_input = input("")
+    if user_input == "q":
+        break
+    else:
+        if float(user_input) > LIMIT:
+            warning_count += 1
+            print(f"🚨 임계값{LIMIT} 초과! 현재까지 초과 {warning_count}회")
+        value_list.append(float(user_input))
+    print("측정값:", user_input)
+print("----------------------------------------")
+
+
 # TODO 2. 입력값이 LIMIT 초과하면 즉시 경고 + 지금까지 초과 횟수 출력
 
 
