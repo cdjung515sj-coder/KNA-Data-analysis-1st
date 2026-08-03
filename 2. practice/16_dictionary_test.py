@@ -61,3 +61,13 @@ for name, value in sensors.items():
         max_value = value
         max_name = name
 print(f"최댓값 센서:{name}{value}")
+
+# =========================================================================================
+print("============== 실습4 ===============")
+names = ["모터온도", "진동", "유량", "압력"]
+values = [78, 0.5, 44, 95]
+sensors = dict(zip(names, values))
+
+for names,values in sensors.items():
+    print(f"{names}:{values}")
+0
