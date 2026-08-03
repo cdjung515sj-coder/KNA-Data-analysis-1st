@@ -233,18 +233,18 @@ for pokemon in pokemon_evolution_list:
 
 
 print("===========================")
-pokemon_name = input(
-    "다음 포켓몬 중 하나를 입력\n[구구], [뚜벅초], [발챙이], [케이시], [알통몬], [모다피], [꼬마돌], [고오스], [미뇽]\n포켓몬 이름 입력: "
-)
+# pokemon_name = input(
+#     "다음 포켓몬 중 하나를 입력\n[구구], [뚜벅초], [발챙이], [케이시], [알통몬], [모다피], [꼬마돌], [고오스], [미뇽]\n포켓몬 이름 입력: "
+# )
 
-for pokemon in pokemon_evolution_list:
-    if pokemon["기본형"] == pokemon_name:
-        print(
-            f"[{pokemon['기본형']}] 1차진화 : {pokemon['1차진화']}, 2차진화 : {pokemon['2차진화']}"
-        )
-        break
-else:
-    print("포켓몬 이름을 확인해주세요")
+# for pokemon in pokemon_evolution_list:
+#     if pokemon["기본형"] == pokemon_name:
+#         print(
+#             f"[{pokemon['기본형']}] 1차진화 : {pokemon['1차진화']}, 2차진화 : {pokemon['2차진화']}"
+#         )
+#         break
+# else:
+#     print("포켓몬 이름을 확인해주세요")
 
 
 # ==================================================================
@@ -271,13 +271,25 @@ for name, value in values.items():
     # limits[key]: 키가 없으면 에러(KeyError)가 터져 프로그램이 죽음
     # if value > limits[name]:
     #     print(name, "경고")
-    
+
     # get 을 사용해서 하는것을 추천합니다. 측정 데이터 임계치 데이터 사이에서 어긋나면 대응을 해줘야 하니까
     # limits.get(key): 키가 없어도 에러 없이 안전하게 넘어가기 위해 사용
     if value > limits.get(name, 0):
         print(name, "경고")
 
         # 주의점: limits.get(name, 0)처럼 기본값으로 0을 넣으면, 기준 없는 항목이 의도치 않게 경고 처리될 수 있으므로 None 체크를 해주는 것이 안전함
-    
-#
+
+# ==================================================================
+print(" update로 여러 값 한 번에 갱신하기 ======================================")
+
+sensors = {"모터온도": 78, "진동": 0.5}
+new_data = {"모터온도": 80, "유량": 42}
+sensors.update(new_data)  # 기존 딕셔너리에 새로운 딕셔너리의 key-value 조합 추가
+print(sensors)  # 결과 : {'모터온도': 80, '진동': 0.5, '유량': 42}
+# 실제로 많이 쓰이지 않음 왜냐하면 실수가 많음. 센서 데이터들 키마다, 밸류마다 변화해야되는데 update는 덮어씌움
+# 예측불허일 떄도 있음. 그래서 제어가 가능한 그림이 가능하면 가능하지만, 많은 계측 데이터들은 키들이 많아서 이걸 사용한다면 문제 발생 여부가 높음
+# 가급적 update를 피하는 것도 방법. 이런 메서드가 존재한다만 알아줘
+
+
+
 
