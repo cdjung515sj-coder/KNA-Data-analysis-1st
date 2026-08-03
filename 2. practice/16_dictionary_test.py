@@ -36,3 +36,28 @@ print(sensors)
 del sensors["모터온도"]
 print(sensors)
 print(len(sensors))
+
+
+# =======================================================================================
+print("============== 실습3 ===============")
+# 실습 3. 딕셔너리로 통계 내기
+
+# 1) 센서명, 측정값 딕셔너리 저장
+senors = {"모터온도": 78, "진동": 0.5, "유량": 44, "압력": 1}
+
+# 2) values 합을 개수로 나눠 평균 구하기
+total = 0
+for value in sensors.values():
+    total = total + value
+
+print("평균:", total / len(sensors))
+
+# 3) items로 순회하며 가장 큰 값고 그 센서명 찾아 출력하기
+
+max_value = 0
+max_name = ""
+for name, value in sensors.items():
+    if value > max_value:
+        max_value = value
+        max_name = name
+print(f"최댓값 센서:{name}{value}")
