@@ -19,3 +19,20 @@ print(sensors)
 print(sensors.get("면적", -1))  # 면적 key는 존재하지 않아서 -1로 대체
 print("진동" in sensors)  # 존재하는 key
 print("면적" in sensors)  # 존재하지 않는 key
+
+# =======================================================================================
+print("============== 실습2 ===============")
+# 실습 2. update로 여러 값 한 번에 갱신하기
+
+# 1) 센서 딕셔너리와 새 데이터 딕셔너리 각각 저장
+sensors = {"모터온도": 78, "진동": 0.5, "유량": 44}
+new_sensors = {"모터온도": 78, "진동": 0.8, "유량": 33, "압력": 1}
+
+# 2) update로 새 데이터를 한 번에 반영(있으면 수정, 없으면 수정)
+sensors.update(new_sensors)
+print(sensors)
+
+# 3) del로 특정 키 삭제하고 len으로 개수 확인하기
+del sensors["모터온도"]
+print(sensors)
+print(len(sensors))
