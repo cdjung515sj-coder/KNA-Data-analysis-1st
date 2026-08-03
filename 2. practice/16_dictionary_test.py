@@ -68,6 +68,72 @@ names = ["모터온도", "진동", "유량", "압력"]
 values = [78, 0.5, 44, 95]
 sensors = dict(zip(names, values))
 
-for names,values in sensors.items():
+for names, values in sensors.items():
     print(f"{names}:{values}")
-0
+
+
+# =========================================================================================
+print("============== 실습5 ===============")
+
+# 실습 5. 임계값으로 경고 센서 분류하기
+values = {"모터온도": 78, "진동": 0.5, "유량": 44, "압력": 1}
+limits = {"모터온도": 40, "진동": 0.3, "유량": 35, "압력": 1.5}
+
+over_val = []
+
+for name, value in values.items():
+    if value > limits.get(name, 0):
+        over_val.append(name)
+print(f"경고센서:{over_val}")
+
+
+# =========================================================================================
+print("============== 실습6 ===============")
+
+equipments = {
+    "모터1": {"진동": 0.5, "유량": 44, "압력": 1, "상태": "정상"},
+    "모터2": {"진동": 0.7, "유량": 56, "압력": 1.5, "상태": "경고"},
+    "모터3": {"진동": 0.4, "유량": 45, "압력": 1.2, "상태": "정상"},
+    "모터4": {"진동": 0.4, "유량": 43, "압력": 1.2, "상태": "정상"},
+    "모터5": {"진동": 0.8, "유량": 60, "압력": 1.7, "상태": "경고"},
+}
+
+for e_name, state in equipments.items():
+    if state["상태"] == "경고":
+        print(f"{e_name} 점검 필요")
+
+
+# =========================================================================================
+print("============== 실습7 ===============")
+
+senors = ["모터온도,78", "진동,0.5", "유량,44", "압력,1"]
+sensors = {}
+
+
+for senors_value in senors:
+    name, value = senors_value.split(",")
+    sensors[name] = float(value)
+print(sensors)
+
+
+# =========================================================================================
+print("============== 실습8 ===============")
+
+# 실습 8. 센서 데이터 통합 정리
+
+eq_values = {"모터온도": 78, "진동": 0.5, "유량": 44, "압력": 1}
+limits = {"모터온도": 40, "진동": 0.3, "유량": 35, "압력": 1.5}
+
+total = 0
+for value in eq_values.values():
+    total = total + value
+
+print(f"평균: {total / len(values):.2f}")
+
+sets = set()
+
+for name, value in eq_values.items():
+    if value > limits[name]:
+        sets.add(name)
+
+print("위험 센서:", sorted(sets))
