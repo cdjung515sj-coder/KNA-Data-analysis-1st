@@ -149,3 +149,21 @@ print(sensors.values())  # dict_values(['펌프', 0.7, 95, 42])
 print(len(sensors))  # 4
 
 
+# ---------------------------------------------------------------------------
+print(
+    "-------------- .items() 반복문에서 사용하며 키와 같은 짝으로 함께 꺼내기 -------------------"
+)
+
+# 이런 경우는 많이 있으므로 알아둬 데이터가 부족해도 너무 많아도 문제가 되니까 이런건 중요하죠
+if len(sensors) < 5:
+    print("내용이 부족해요!")
+
+for key, value in sensors.items():
+    print(key)
+    print(value)
+
+# 위와같이 사용하기 보단, 의미있는 이름으로 사용할 것!
+for name, value in sensors.items():
+    print(name)
+    print(value)
+-                                                                       
