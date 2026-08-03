@@ -101,8 +101,36 @@ print(
 
 
 # motor_ 에는 숫자가 담길거라 생각했지만
-motor_degree = sensors.get("모터온도")
+motor_degree = sensors.get("모터온도", 0)
+
+# 대체값으로 0 으로 넣는다고 하는데 케바케로 상황에 따라 달라짐
 
 # motor_degree에 숫자가 안담기면 에러 발생
 next_degree = motor_degree + 10
 print(next_degree)
+
+is_motor_degree_key = "센서이름" in sensors
+# 등호를 중심으로 오른쪽 먼저 보셔라
+# 센서스 딕서녀리 안에 "모터온도가" 있느냐~
+
+print(is_motor_degree_key)  # => 있으면 True / 없으면 False
+
+if is_motor_degree_key:
+    print("그런 키 있어요!")
+else:
+    print("그런 키 없어요!")
+
+# 위 코드는 이렇게 보통 이렇게 쓰인다
+if "센서이름" in sensors:
+    print("그런 키 있어요!")
+else:
+    print("그런 키 없어요!")
+
+# 딕셔너리 키가 될 수 있는것
+# 문자열 가능 안 바뀜 — "모터온도" 같이 한 번 정해지면 변경 불가
+# 숫자 가능 안 바뀜 — 정수·실수 모두 키로 사용 가능
+# 튜플 가능 안 바뀜 — 앞서 튜플이 키 될 수 있던 이유
+
+# 리스트 불가 바뀜 — 이사 간 집으로 편지를 못 보내는 것과 같음
+# # 리스트([])는 언제든지 요소를 추가(append), 삭제, 변경할 수 있는 가변(Mutable) 데이터 구조입니다.
+# 내용물이 바뀌면 주소가 꼬여버리기 때문에 파이썬에서는 리스트를 딕셔너리의 키로 절대 사용할 수 없게 막아 두었습니다. (사용 시 TypeError 발생)
