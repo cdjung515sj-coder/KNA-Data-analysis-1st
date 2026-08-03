@@ -245,3 +245,39 @@ for pokemon in pokemon_evolution_list:
         break
 else:
     print("포켓몬 이름을 확인해주세요")
+
+
+# ==================================================================
+print(" 임계값 비교 ======================================")
+
+# 두 딕셔너리를 key-value 조합으로 하나씩 꺼내어 비교하기!
+
+# 전제조건) 다음에 두 딕셔너리는 같은 key 들을 가지고 있습니다.
+# 실제 데이터
+values = {"모터온도": 95, "압력": 88}
+
+# 임계치 데이터
+limits = {"모터온도": 90, "압력": 90}
+
+# if values > limits:
+#     print("임계치 초과!")
+#     # 문제가 발생하므로 키들을 하나씩 꺼내오면서 비교하는게 원칙임
+
+for name, value in values.items():
+    # 찰 돌아가는지 보려면 print 문으로 계속 실행해보기
+    print(f"{name} : {value}")
+
+    # limits 딕셔너리에도 name의 key가 있다면, 가져와서 비교하자!
+    # limits[key]: 키가 없으면 에러(KeyError)가 터져 프로그램이 죽음
+    # if value > limits[name]:
+    #     print(name, "경고")
+    
+    # get 을 사용해서 하는것을 추천합니다. 측정 데이터 임계치 데이터 사이에서 어긋나면 대응을 해줘야 하니까
+    # limits.get(key): 키가 없어도 에러 없이 안전하게 넘어가기 위해 사용
+    if value > limits.get(name, 0):
+        print(name, "경고")
+
+        # 주의점: limits.get(name, 0)처럼 기본값으로 0을 넣으면, 기준 없는 항목이 의도치 않게 경고 처리될 수 있으므로 None 체크를 해주는 것이 안전함
+    
+#
+
