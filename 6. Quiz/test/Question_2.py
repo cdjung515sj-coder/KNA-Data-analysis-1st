@@ -35,7 +35,7 @@ print(f"총 입력 개수: {len(user_input)}개")
 if value_list:
     max_value = max(value_list)
     min_value = min(value_list)
-    print(f"최댓값: {float(max_value):.1f} / 최솟값: {loat(min_value):.1f}")
+    print(f"최댓값: {float(max_value):.1f} / 최솟값: {float(min_value):.1f}")
 print(f"평균값: {float(value_list/len(value_list)):.2f}")
 print(f"평균 초과 개수: {warning_count}개")
 print(f"상위 3개 값: [{max_value}]")
