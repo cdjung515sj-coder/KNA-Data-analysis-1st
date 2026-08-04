@@ -1,16 +1,83 @@
 # 07_03 함수 설계와 활둉
 
 
-# 기본값 인자
-def report():
-    print("...")
+# 01. 기본값 인자
+# name과 value는 호출할 떄 꼭 매개변수를 지정해줘야지만
+# unit은 지정/언급 안해주면 "도(℃)" 기본값으로 정해진다
 
 
-report()
+def report(name, value, unit="도(℃)"):
+    print(f"{name} : {value}{unit}")
 
 
-def report(name, value):
-    print(f"{name} : {value}")
-
-
+report("압축기A", 75.3, "도(℃)")
 report("압축기A", 75.3)
+report("압축기A", 75.3, "도(F)")
+
+
+# 기본값 덮어쓰기
+# 결과가 bool 타입을 return하는 함수는 이름이 보통 "is"로 시작한다
+# 심화과정 : 당황하지 않고 읽어낼 수 있다면 성공적 !
+
+
+def is_over_limit(value, limit):
+    if value > limit:
+        # 위험 맞음
+        return True
+
+    # 그 밖에는 위험 아님
+    return False
+
+
+print(f"위험한가요? {is_over_limit(95,90)}")
+print(f"위험한가요? {is_over_limit(105,90)}")
+
+
+# ======== 응용 -----
+def is_over_limit(value, limit=90):
+    if value > limit:
+        # 위험 맞음
+        return True
+
+    # 그 밖에는 위험 아님
+    return False
+
+
+print(f"위험한가요? {is_over_limit(95)}")
+print(f"위험한가요? {is_over_limit(105)}")
+# 어쩌다 다른 기준이 필요할 때만 기준을 함께 전달해주면 된다
+print(f"위험한가요? {is_over_limit(85, limit = 80)}")
+
+
+print("실습1 passsssssssssssssssss")
+# 실습 1. 기본 인자 함수 만들기
+# ① def 괄호 안 매개변수에 = 로 기본값을 지정
+# ② 인자를 생략하고 호출해 기본값이 쓰이는지 확인
+# ③ 인자를 넣어 호출해 기본값을 덮어쓰는지 확인
+# ④ 필수 매개변수는 앞, 기본값 매개변수는 뒤 순서규칙 확인
+
+# 앞선 예제 코드들이 잘 돌아가는지 확인하는 걸로 대체 합니다.
+
+
+# =======================================================================================================================
+print(" 02 지역변수와 범위")
+# scope !!!!!
+# 코드의 어디부터 어디까지 이 변수 데이터가 살아있을까?
+
+# 바깥동네에 변수를 하나 만들어봅시다
+outter = 100
+
+
+def change_outter():
+    # 아래 코드는 함수 내부에서 처음 언급되면서
+    # 새롭게 만들어진 outter이고 (지역변수) 함수가 종료되면 메모리에서 사라진다
+    # 함수 바깥의 같은 이름의 존재에는 전혀 영향을 안준다
+    outter = 50
+
+
+change_outter()
+print(outter)  # 100
+
+# 실습 2. 지역변수 관찰하기
+# 함수 안에서 만든 지역변수가 함수 밖에서는 보이지 않음을 확인
+# 앞의 예제코드로 확인 가능
