@@ -53,7 +53,7 @@ for value in sensors.values():
 print("평균:", total / len(sensors))
 
 # 3) items로 순회하며 가장 큰 값고 그 센서명 찾아 출력하기
-
+# 최댓값 구하기
 max_value = 0
 max_name = ""
 for name, value in sensors.items():
