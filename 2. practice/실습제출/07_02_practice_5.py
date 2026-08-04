@@ -6,6 +6,7 @@
 # ④ 돌려받은 값을 세 변수로 언패킹해 출력
 
 
+
 def analyze_sensor_data(sensor_values):
     min_val = min(sensor_values)
     max_val = max(sensor_values)
@@ -13,9 +14,8 @@ def analyze_sensor_data(sensor_values):
     return min_val, max_val, avg_val
 
 
-sensors_data = [77, 88, 99, 78, 87, 97]
-min_temp, max_temp, avg_temp = analyze_sensor_data
-
+sensors_values = [77, 88, 99, 78, 87, 97]
+min_temp, max_temp, avg_temp = analyze_sensor_data(sensors_values)
 print(f"최소값: {min_temp}")
 print(f"최대값: {max_temp}")
 print(f"평균값: {avg_temp:.2f}")
