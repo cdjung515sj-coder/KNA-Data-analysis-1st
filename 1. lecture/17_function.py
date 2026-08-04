@@ -80,3 +80,34 @@ def show_counter():
 show_counter()
 show_counter()
 show_counter()
+
+# 각 함수의 이름은 이름에 걸맞는 역할만 해줘야 한다
+
+
+def show_students():
+    print("학생: 짱구")
+    print("학생: 맹구")
+    print("학생: 철수")
+    print("학생: 유리")
+    print("학생: 훈이")
+    # print("선생님: 채성아") # 기능적으로 잘 돌아가나,
+    # show_students()라는 이름을 보면 이 코드를 읽는 사람(또는 미래의 나)은 "아, 이 함수를 쓰면 학생 목록만 나오겠구나!" 하고 예상합니다.
+    # 그런데 예상치 못하게 선생님 이름까지 함께 나오면, 함수가 자신의 이름과 다른 일(선생님 출력)까지 같이 하고 있는 셈이 됩니다.
+
+
+def show_teacher():
+    print("선생님: 채성아")
+
+
+show_students()
+show_teacher()
+# 이렇게 두개로 나눠서 해주는게 좋아
+
+
+# 이제 위에 코드 대신 아래처럼 한번에 출력해주는게 좋겠지?
+def show_classroom():
+    show_teacher
+    show_students
+
+
+show_classroom()
