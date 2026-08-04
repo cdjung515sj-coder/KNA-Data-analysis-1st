@@ -14,5 +14,5 @@ result = add(10, 75)
 
 print(result)
 
-result - add(result, 5)
-print(f"{result}(담은 값을 이어씀)")
+result = add(result, 5)
+print(f"{result}")
