@@ -53,7 +53,7 @@ print("=" * 20)
 # 현재 경로에 있는 해당 파일이란걸 더 강조하는 상대경로 지정으로 써도 된다
 # python./code.py
 
-# 만약 아닌
+# 만약 아닌 c:\Users\mzlap\Desktop\KNA-Data-analysis-1st\1. lecture\18_module_Standard_Library_2.py
 # 폴더 경로(cwd)에서 위 코드를 실행하고 싶다면
 # 절대경로 : python
 # 상대경로 : python .. \
@@ -71,3 +71,19 @@ print(file_list)
 file_list = os.listdir()
 for file_name in file_list:
     print(file_name)
+
+
+print("=" * 20)
+# ==============================================================
+
+# 파일이 존재하는지 확인해보자 !
+# 운영체제(윈도우/맥/리눅스)마다 경로를 나타내는 방법이 달라서
+# 상황에 맞게 경로문자열을 만들어주는 os의 함수를 사용합시다
+import os
+
+path = os.path.join("data", "08_press.csv")
+print(path)  # data\08_press.csv
+
+# 실제로 경로문자열을 따라서 찾아가면 해당 파일이 있는지 알아보자 : True/False
+if os.path.exists(path):
+    print(f"파일있음: {path}")
