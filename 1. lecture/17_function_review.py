@@ -30,13 +30,14 @@ show_hello("sujin")
 
 
 # 매개변수는 여러 값을 받을 수 있고
-def show_hi(name):
+def show_hi(name, message):
     message = "안녕하세요"
     print(f"{message}, {name}")
 
 
 show_hi("sujin", "안녕하세요")
 show_hi("sujin", "반갑습니다")
+
 
 # 매개변수에는 따로 안알려주면 기본값을 적용할 수도 있습니다.
 def show_greeting(name, message="안녕하세요"):
