@@ -54,9 +54,10 @@ print("=" * 20)
 # python./code.py
 
 # 만약 아닌 c:\Users\mzlap\Desktop\KNA-Data-analysis-1st\1. lecture\18_module_Standard_Library_2.py
-# 폴더 경로(cwd)에서 위 코드를 실행하고 싶다면
+# # 폴더 경로(cwd)에서 위 코드를 실행하고 싶다면 -------- 수정 필요
 # 절대경로 : python
 # 상대경로 : python .. \
+
 
 # 표준 라이브러리의 os 모듈 활용
 import os
