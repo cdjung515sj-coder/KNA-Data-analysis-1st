@@ -39,3 +39,35 @@ print("=" * 20)
 print("=" * 20)
 # ==============================================================
 
+# 절대경로와 상대경로
+# pwd : 현재 위치 확인
+
+# 절대경로의 예 : c:\Users\mzlap\Desktop\KNA-Data-analysis-1st
+# 만약 /c/Users/mzlap/Desktop/KNA-Data-analysis-1st 폴더에 터미널을 연 상태에서
+# code.py 코드를 실행하고 싶다면
+# python code.py
+
+# 위 code.py 언급부분은 사실 상대경로를 의미한다
+# 그래서 절대경로로 지정해줘도 똑같이 실행될 것이다
+
+# 현재 경로에 있는 해당 파일이란걸 더 강조하는 상대경로 지정으로 써도 된다
+# python./code.py
+
+# 만약 아닌
+# 폴더 경로(cwd)에서 위 코드를 실행하고 싶다면
+# 절대경로 : python
+# 상대경로 : python .. \
+
+# 표준 라이브러리의 os 모듈 활용
+import os
+
+current_working_directory = os.getcwd()
+print(current_working_directory)
+
+file_list = os.listdir()
+print(file_list)
+
+# 현재 작업디렉토리의 파일 목록 가져오기
+file_list = os.listdir()
+for file_name in file_list:
+    print(file_name)
