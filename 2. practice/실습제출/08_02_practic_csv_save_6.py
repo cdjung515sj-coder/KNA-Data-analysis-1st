@@ -13,8 +13,6 @@ with open(csv_path, "r", encoding="utf-8") as f:
 
     header = next(reader)
 
-    print(header)
-
     for row in reader:
         elect = float(row[4])
 
@@ -25,3 +23,5 @@ with open(write_path, "w", encoding="utf-8", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(header)
     writer.writerows(over_90)
+
+print("파일 생성 완료, 08_press_over90.csv 파일 생성 확인 요망")
