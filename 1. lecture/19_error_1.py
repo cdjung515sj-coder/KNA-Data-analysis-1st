@@ -39,4 +39,44 @@ except:
 
 print(temp)
 
-# 
+
+# ====================
+
+origin = input("온도 :")
+
+print(f"입력한 온도는 {origin}")
+
+temp = 0
+
+try:
+    temp = int(origin)
+except:
+    print(
+        "숫자가 아니면 왜 저를 부르셨어요? '0'으로 생각할게요."
+    )  # ValueError: invalid literal for int() with base 10: '헤헤ㅔ' 위에 temp 0을 해줘
+
+
+next_temp = temp + 10
+print(f"10도만 더 높으면 {next_temp}")
+
+
+# ========================
+
+# 09_01 실습 2
+
+origin = input("온도 :")
+
+print(f"입력한 온도는 {origin}")
+
+try:
+    temp = int(origin)
+except ValueError:
+    # ValueError인 상황이었다면 여기로 예외처리
+    print("숫자가 아니면 왜 저를 부르셨어요? '0'으로 생각할게요.")
+    temp = 0
+except TypeError:
+    # TypeError인 상황이었다면 여기로 예외처리
+    print("타입 문제는 전지구적 문제입니다.")
+
+next_temp = temp + 10
+print(f"현재 온도 + 10 : {next_temp}")
