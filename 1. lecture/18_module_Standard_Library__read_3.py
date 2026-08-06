@@ -25,3 +25,16 @@ with open("data/sample.txt", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
 print(lines)
+
+
+# ==============
+# 쓰기모드(write)로 파일을 새롭게 만들어보겠습니다.
+f = open("data/hello.txt", "w", encoding="utf-8")
+
+# 파일 쓰기에 줄바꿈을 포함하려면 \n을 포함 시킨다
+f.write("안녕하세요\n")
+# 파일 쓰기에 들여쓰기를 포함하는 경우
+f.write("\t반갑습니데이~")
+
+f.close()
+
