@@ -73,7 +73,6 @@ with open(csv_path, "r", encoding="utf-8") as f:
 # -------------------------
 
 import os
-import sys
 import csv
 
 csv_path = os.path.join("data", "result.csv")
