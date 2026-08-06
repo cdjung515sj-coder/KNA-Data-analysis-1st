@@ -38,3 +38,11 @@ f.write("\t반갑습니데이~")
 
 f.close()
 
+# ===============
+# 이어쓰기 모드(append)로 파일에 내용을 추가해보자
+f = open("data/hello.txt", "a", encoding="utf-8")
+
+# 파일 쓰기에 줄바꿈을 포함하려면 \n을 포함 시킨다
+f.write("맛점!!!\n")
+
+f.close()
