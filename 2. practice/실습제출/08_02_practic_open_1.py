@@ -16,7 +16,9 @@ f.close()
 
 print(" ============================")
 
-# readlines로 줄 리스트로 읽어 출력하기
+# 실습 1. with open() 컨텍스트 매니저
+# 블록이 끝나면 파일이 자동으로 닫힘 - 실무 기본형태
+
 with open("data/sample.txt", "r", encoding="utf-8") as f:
     lines = f.readlines()
 
