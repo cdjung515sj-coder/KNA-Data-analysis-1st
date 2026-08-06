@@ -99,11 +99,34 @@ if not os.path.exists(csv_path):
 print("파일있음")
 
 with open(csv_path, "r", encoding="utf-8") as f:
-    # DictReader는 첫줄은 컬럼 이름으로 판단하고
-    # 각 row를 ㅐ당 컬럼이름들을 key로 하는 딕셔너리로 만들어준다
     reader = csv.DictReader(f)
+
+    # DictReader는 첫줄은 컬럼 이름으로 판단하고
+    # 각 row를 해당 컬럼이름들을 key로 하는 딕셔너리로 만들어준다
 
     print(reader)
 
     for row in reader:
         print(row["설비ID"], row.get("시각"))
+
+
+# ==================
+
+import csv
+
+csv_path = os.path.join("data", "08_press.csv")
+
+with open(csv_path, "r", encoding="utf-8") as f:
+    reader = csv.reader(f)
+
+    # EictReader가 아닌 그냥 reader를 사용한다면 보통 csv파일의 첫줄인 헤더줄도 읽힘
+    # reader에게 첫줄은 건너뛰라고 말하는 방법이 필요함
+    # next(reader)는 한 줄 건너뛰고 reader가 반응하게 한다
+    header = next(reader)
+    # header는 따로 리스트로 챙겨진다
+    # ['설비ID', '시각', '진동X', '진동Y', '전류', '상태']
+
+    print(header)
+
+    for row in reader:
+        print(row[0])
