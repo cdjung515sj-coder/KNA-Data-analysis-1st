@@ -19,7 +19,6 @@ temp = 0
 
 try:
     temp = float(text)
-    print(text * 2)
 except ValueError:
     print("ValueError 문제 발생!!")
 except NameError:
