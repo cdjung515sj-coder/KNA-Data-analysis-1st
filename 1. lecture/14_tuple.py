@@ -109,7 +109,7 @@ print(f"threee : {three}")
 
 # =======================================
 
-tup = ("normal", "normal", "worning", "normal", "worning")
+tup = ("normal", "normal", "warning", "normal", "warning")
 
 # 튜플의 길이
 print(len(tup))  # 5
@@ -120,7 +120,7 @@ print(tup.count("warning"))  # 2
 # 특정 값이 처음 나온 인덱스 찾기
 print(tup.index("warning"))  # 2
 # 찾고자 하는 값이 없으면 Error 발생
-print(tup.index("warning"))  # ValueError: tuple.index(x): x not in tuple
+# print(tup.index("worning"))  # ValueError: tuple.index(x): x not in tuple
 
 
 # =======================================
