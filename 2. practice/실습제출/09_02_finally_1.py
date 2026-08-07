@@ -5,10 +5,9 @@ temp = 0
 
 try:
     temp = float(text)
-    print(f"입력 온도: {temp} ℃, {(temp -32)*1.8:.2f} F")
 except ValueError:
     print("ValueError")
 except NameError:
     print("NameError")
 finally:
-    print(f"오류 발생 시 (-57.6 F) :{(temp -32)*1.8:.2f} F")
+    print(f"입력 온도: {temp} ℃, {(temp -32)*1.8:.2f} F")
