@@ -55,6 +55,7 @@ print("=" * 20)
 
 # 만약 아닌 c:\Users\mzlap\Desktop\KNA-Data-analysis-1st\1. lecture\18_module_Standard_Library_2.py
 # # 폴더 경로(cwd)에서 위 코드를 실행하고 싶다면 -------- 수정 필요
+# 
 # 절대경로 : python
 # 상대경로 : python .. \
 
@@ -82,9 +83,11 @@ print("=" * 20)
 # 상황에 맞게 경로문자열을 만들어주는 os의 함수를 사용합시다
 import os
 
-path = os.path.join("data", "08_press.csv")
+path = os.path.join("data", "081_press.csv")
 print(path)  # data\08_press.csv
 
 # 실제로 경로문자열을 따라서 찾아가면 해당 파일이 있는지 알아보자 : True/False
 if os.path.exists(path):
     print(f"파일있음: {path}")
+else:
+    print("파일 없쪄영")
