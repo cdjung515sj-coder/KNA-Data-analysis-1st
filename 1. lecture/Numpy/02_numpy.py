@@ -29,9 +29,12 @@
 # deactivate
 
 
+# Numpy 불러오기
+
 import numpy as np
 
 numbers = [1, 2, 3, 4, 5]
 # 위 int 값들의 리스트를 사용해서 numpy의 배열 만들기
 np_numbers = np.array(numbers)
 print(np_numbers)
+# [1 2 3 4 5] 이렇게 쉼표가 없으니 넘파이 사용 + 배열이구나~ 리스트가 아니니까 구분 좀 해~
