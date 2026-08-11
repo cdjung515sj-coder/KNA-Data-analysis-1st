@@ -25,3 +25,17 @@ print(rpm7.max() - rpm7.min())  # 4929.0
 
 
 # 회전수의 평균, 표준편차와 최솟값,최댓값이 출력
+
+# -----------------------------------------------------
+file_content = np.loadtxt(
+    "data/10_mct_tool.csv", delimiter=",", skiprows=1, usecols=4, encoding="utf-8"
+)
+
+file_mean = file_content.mean()
+file_std = file_content.std()
+print(round(file_mean, 1))  # 4212.6
+print(round(file_std, 1))  # 1144.9
+
+print(file_content.min(), file_content.max())  # 58.0 4987.0
+print(file_content.max() - file_content.min())  # 4929.0
+
