@@ -23,3 +23,17 @@ print(np.round(nomarlized, 2))  # [0.1  0.   0.06 0.02 0.01 1.  ]
 
 
 # 예상 결과 : # 가장 작은 값이 0, 가장 큰 값이 1이 되는 정규화 배열 출력
+
+# ---------------------------------------------
+
+rpm_data = np.array([1200, 2500, 800, 3100, 1500, 4000, 950])
+
+rpm_min = rpm_data.min()
+rpm_max = rpm_data.max()
+nomarlized = (rpm_data - rpm_min) / (rpm_max - rpm_min)
+
+print(f"원본 : {rpm_data}")
+print(f"최솟값 : {rpm_min}")
+print(f"최댓값 : {rpm_max}")
+print(f"정규화 된 값 : {nomarlized}")
+print(np.round(nomarlized), 2)
