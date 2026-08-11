@@ -20,4 +20,21 @@ danger_indices = np.where((rpm4 > 2000) | (torque4 < 10))[0]
 print(danger_indices)
 # 예상 결과
 # 기준 초과 회전수 값과, 위험 조건을 만족하는 위치가 출력됨
-#
+
+
+# ----------------------------------------------------------
+
+rpm = np.array([2500, 3800, 4200, 1800, 4500, 3100, 2900])
+torque = np.array([120, 110, 45, 130, 40, 95, 105])
+
+rpm_over = rpm > 4000
+over_values = rpm[rpm_over]
+
+print(rpm_over)  # [False False  True False  True False False]
+print(over_values)  # [4200 4500]
+
+risk_data = (rpm > 4000) | (torque < 50)
+danger_indices = np.where(risk_data)[0]
+
+print(f"기준 초과 회전수 값:, {over_values}")
+print(f"위험 조건을 만족하는 위치(인덱스): {danger_indices}")
