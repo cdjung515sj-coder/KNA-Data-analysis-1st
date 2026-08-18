@@ -5,7 +5,7 @@
 import pandas as pd
 
 df_shot = pd.read_csv("data/13_diecasting_shot.csv")
-df_shot()
+df_shot.info()
 
 # 단계
 df_sorted = df_shot.sort_values("비스킷두께")  # 기본 배열

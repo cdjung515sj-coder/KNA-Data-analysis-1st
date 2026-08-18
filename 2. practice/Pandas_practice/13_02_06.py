@@ -60,5 +60,3 @@ print(df_filterd)
 
 print(df_filterd["비스킷두께"].tolist())
 # [27.0, 26.0, 20.0, 19.0, 19.0]
-
-

@@ -1,52 +1,84 @@
 # 실습 7. 이상 의심 설비 리포트
 # 목표
-# 불러오기부터 판단 문장까지 전체 워크플로우를 두 데이터에 적용
+# # 불러오기부터 판단 문장까지 전체 워크플로우를 두 데이터에 적용
+# import pandas as pd
+
+# # 단계
+# # · 복합 조건으로 위험 설비를 거르고 비스킷두께 내림차순 정렬
+# # · 필요한 주요 열만 선택하고 가장 위험한 설비로 판단 문장 작성
+# # · 같은 흐름을 주조 로그 불량 데이터에도 적용해 결과 비교
+# # 예상 결과
+# # 주조 로그 위험 50건·판단 문장, 주조 로그 불량 상위 목록 출력
+
+
 import pandas as pd
 
-# 단계
-# · 복합 조건으로 위험 설비를 거르고 비스킷두께 내림차순 정렬
-# · 필요한 주요 열만 선택하고 가장 위험한 설비로 판단 문장 작성
-# · 같은 흐름을 주조 로그 불량 데이터에도 적용해 결과 비교
-# 예상 결과
-# 주조 로그 위험 50건·판단 문장, 주조 로그 불량 상위 목록 출력
+df_read_shot = pd.read_csv("data/13_diecasting_shot.csv", encoding="utf-8")
+df_read_shot.info()
 
-# 분석 워크플로우 5단계 맞추기
-# 1단계 불러오기
-df = pd.read_csv("data/13_diecasting_shot.csv", encoding="utf-8")
+df_risk = df_read_shot[
+    (df_read_shot["비스킷두께"] >= 16) | (df_read_shot["사이클타임"] >= 100)
+]
+print(len(df_read_shot))
 
-# 2단계 확인하기
-df.info()
+df_risk_sorted = df_risk.sort_values("비스킷두께", ascending=False)
+print(df_risk_sorted.head())
 
-# 3단계 필터링
-df_warning = df[(df["비스킷두께"] >= 16) | (df["사이클타임"] >= 100)]
-print(len(df_warning))  # 76
+selectied_values = ["품질등급", "비스킷두께", "사이클타임", "주조압력"]
+df_risk_report = df_risk_sorted[selectied_values]
+print(df_risk_report.head())
+
+top1_risk = df_risk_report.head(1)
+print(top1_risk)
+
+defective = df_read_shot[df_read_shot["품질등급"] == "불량"].sort_values(
+    "형체력", ascending=False
+)
+print("[불량 샷 형체력 상위 목록]")
+print(defective[["샷", "형체력"]].head())
+
+# =============================================================================
+
+# # 분석 워크플로우 5단계 맞추기
+# # ✅1단계 불러오기
+# df = pd.read_csv("data/13_diecasting_shot.csv", encoding="utf-8")
+
+# # ✅ 2단계 확인하기
+# df.info()
+
+# # ✅ 3단계 필터링
+# df_warning = df[(df["비스킷두께"] >= 16) | (df["사이클타임"] >= 100)]
+# print(len(df_warning))  # 76
 
 
-# 4단계 정렬
-df_report = df_warning.sort_values("비스킷두께", ascending=False)  # 내림차순 정렬됨
-print(df_report.head())
+# # ✅ 4단계 정렬
+# df_report = df_warning.sort_values("비스킷두께", ascending=False)  # 내림차순 정렬됨
+# print(df_report.head())
 
-#        샷  실린더압력    주조압력  사이클타임  비스킷두께    형체력 품질등급
-# 197  198  113.0   255.0   36.6   27.0  354.0   불량
-# 191  192  113.0   255.0   36.9   26.0  366.0   불량
-# 42    43  215.0  1040.0   20.7   21.0  253.0   주의
-# 196  197  265.0   595.0   36.2   20.0  355.0   불량
-# 170  171  265.0   596.0   36.1   20.0  370.0   주의
+# #        샷  실린더압력    주조압력  사이클타임  비스킷두께    형체력 품질등급
+# # 197  198  113.0   255.0   36.6   27.0  354.0   불량
+# # 191  192  113.0   255.0   36.9   26.0  366.0   불량
+# # 42    43  215.0  1040.0   20.7   21.0  253.0   주의
+# # 196  197  265.0   595.0   36.2   20.0  355.0   불량
+# # 170  171  265.0   596.0   36.1   20.0  370.0   주의
 
-# 5단계 선택 : [[...]] 대괄호 중첩 주의 !! ⭐⭐
-# df_final = df_report["샷", "품질등급", "형체력", "사이클타임"] # KeyError: ('샷', '품질등급', '형체력', '사이클타임')
-df_final = df_report[["샷", "품질등급", "형체력", "사이클타임"]]
-print("======================================================================")
-print("Top 5 위험 목록")
-print(df_final.head())
+# # ✅ 5단계 선택 : [[...]] 대괄호 중첩 주의 !! ⭐⭐
+# # df_final = df_report["샷", "품질등급", "형체력", "사이클타임"] # KeyError: ('샷', '품질등급', '형체력', '사이클타임')
+# df_final = df_report[["샷", "품질등급", "형체력", "사이클타임"]]
+# print("======================================================================")
+# print("Top 5 위험 목록")
+# print(df_final.head())
 
-print("가장 위험한 항목")
-df_danger = df_final.head(1)
-print(df_danger)
+# print("가장 위험한 항목")
+# df_danger = df_final.head(1)
+# print(df_danger)
 
-#        샷 품질등급    형체력  사이클타임
-# 197  198   불량  354.0   36.6
-# 191  192   불량  366.0   36.9
-# 42    43   주의  253.0   20.7
+# #        샷 품질등급    형체력  사이클타임
+# # 197  198   불량  354.0   36.6
+# # 191  192   불량  366.0   36.9
+# # 42    43   주의  253.0   20.7
 # 196  197   불량  355.0   36.2
 # 170  171   주의  370.0   36.1
+
+
+
