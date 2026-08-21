@@ -10,15 +10,19 @@ df_imp_2.info()
 
 # 원본 크기 shape로 확인
 
-print(df_imp_2.shape)
+print("\n=== 원본 데이터 크기 (행, 열) ===")
+print(df_imp_2.shape)  # (250, 22)
 
 # dropna로 행 모두 삭제
 
-print(df_imp_2.dropna().shape)
+print("\n=== 기본 dropna() 적용 후 크기 ===")
+print(df_imp_2.dropna().shape)  # (76, 22)
 
 # 방향을 열로 바꿔 결측 있는 열 삭제
 
-print(df_imp_2.dropna(axis=1).shape)
+
+print("\n=== 열 삭제 (axis=1) 적용 후 크기 ===")
+print(df_imp_2.dropna(axis=1).shape)  # (250, 10)
 
 
 # 예상 결과
