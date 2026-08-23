@@ -1,6 +1,3 @@
-아래 내용 그대로 `.md` 파일에 붙여넣으면 돼.
-
-````md
 # Pandas Series와 DataFrame 차이 및 주의사항
 
 ## 1. Series란?

@@ -10,9 +10,8 @@
 # 7. DataFrame 활용
 # ============================================
 
-import pandas as pd
 import numpy as np
-
+import pandas as pd
 
 # ============================================
 # 1. DataFrame 개념
@@ -35,11 +34,7 @@ import numpy as np
 # ⭐⭐ 행(row) # 열(column) # index  # 데이터 값(value)으로 이뤄진 2차원 자료구조 ⭐⭐
 
 
-df = pd.DataFrame({
-    "설비": ["A", "B", "C"],
-    "온도": [70, 80, 90],
-    "압력": [10, 15, 20]
-})
+df = pd.DataFrame({"설비": ["A", "B", "C"], "온도": [70, 80, 90], "압력": [10, 15, 20]})
 
 print("기본 DataFrame")
 print(df)
@@ -61,11 +56,7 @@ print(df)
 # 가장 많이 사용하는 방법:
 # 딕셔너리를 pd.DataFrame()에 넣기
 
-data = {
-    "설비": ["A", "B", "C"],
-    "온도": [70, 80, 90],
-    "압력": [10, 15, 20]
-}
+data = {"설비": ["A", "B", "C"], "온도": [70, 80, 90], "압력": [10, 15, 20]}
 
 df1 = pd.DataFrame(data)
 
@@ -76,16 +67,29 @@ print(df1)
 # index를 직접 지정할 수도 있음
 
 df2 = pd.DataFrame(
-    {
-        "온도": [70, 80, 90],
-        "압력": [10, 15, 20]
-    },
-    index=["모터", "펌프", "밸브"]
+    {"온도": [70, 80, 90], "압력": [10, 15, 20]}, index=["모터", "펌프", "밸브"]
 )
 
 print("\nindex를 지정한 DataFrame")
 print(df2)
 
+# 열 이름을 Key라고 하고, 리스트를 value로 갖는 딕셔너리 2차원 데이터 생성
+dict_data = {
+    "c0": [1, 2, 3],
+    "c1": [4, 5, 6],
+    "c2": [7, 8, 9],
+    "c3": [10, 11, 12],
+    "c4": [13, 14, 15],
+}
+
+# 판다스 DataFrame() 함수로 딕셔너리 -> DataFrame 로 형 변환
+df_dict = pd.DataFrame(dict_data)
+
+print(f"딕셔너리를 데이터프레임으로 형변환 \n {df_dict}")
+#     c0  c1  c2  c3  c4
+# 0   1   4   7  10  13
+# 1   2   5   8  11  14
+# 2   3   6   9  12  15
 
 # ============================================
 # 3. DataFrame의 index / columns 구조
@@ -105,11 +109,7 @@ print(df2)
 
 
 df = pd.DataFrame(
-    {
-        "온도": [78, 82, 91],
-        "압력": [12, 15, 18]
-    },
-    index=["모터", "펌프", "밸브"]
+    {"온도": [78, 82, 91], "압력": [12, 15, 18]}, index=["모터", "펌프", "밸브"]
 )
 
 print("\nindex / columns 구조")
@@ -131,23 +131,21 @@ print(df)
 # 4. DataFrame 속성
 # ============================================
 
-df = pd.DataFrame({
-    "설비": ["A", "B", "C", "D"],
-    "온도": [65, 78, 85, 92],
-    "압력": [10, 15, 18, 21]
-})
+df = pd.DataFrame(
+    {"설비": ["A", "B", "C", "D"], "온도": [65, 78, 85, 92], "압력": [10, 15, 18, 21]}
+)
 
 print("\nDataFrame 속성")
 
-print("index:", df.index)        # 행 index
-print("columns:", df.columns)    # 열 이름
+print("index:", df.index)  # 행 index
+print("columns:", df.columns)  # 열 이름
 print("values:")
-print(df.values)                 # 실제 값
-print("shape:", df.shape)        # (행 개수, 열 개수)
-print("size:", df.size)          # 전체 원소 개수
-print("ndim:", df.ndim)          # 차원 수
+print(df.values)  # 실제 값
+print("shape:", df.shape)  # (행 개수, 열 개수)
+print("size:", df.size)  # 전체 원소 개수
+print("ndim:", df.ndim)  # 차원 수
 print("dtypes:")
-print(df.dtypes)                 # 각 열의 자료형
+print(df.dtypes)  # 각 열의 자료형
 
 # 중요
 # DataFrame은 2차원이므로
@@ -170,11 +168,7 @@ print(df.dtypes)                 # 각 열의 자료형
 # ============================================
 
 df = pd.DataFrame(
-    {
-        "설비": ["A", "B", "C", "D"],
-        "온도": [65, 78, 85, 92],
-        "압력": [10, 15, 18, 21]
-    }
+    {"설비": ["A", "B", "C", "D"], "온도": [65, 78, 85, 92], "압력": [10, 15, 18, 21]}
 )
 
 
@@ -264,10 +258,7 @@ print(df.iloc[0:3, 0:2])
 # 6-1. 딕셔너리로 만들기
 # --------------------------------------------
 
-data_dict = {
-    "설비": ["A", "B", "C"],
-    "온도": [70, 80, 90]
-}
+data_dict = {"설비": ["A", "B", "C"], "온도": [70, 80, 90]}
 
 df_dict = pd.DataFrame(data_dict)
 
@@ -285,16 +276,9 @@ print(df_dict)
 # 6-2. 리스트 안에 리스트로 만들기
 # --------------------------------------------
 
-data_list = [
-    ["A", 70, 10],
-    ["B", 80, 15],
-    ["C", 90, 20]
-]
+data_list = [["A", 70, 10], ["B", 80, 15], ["C", 90, 20]]
 
-df_list = pd.DataFrame(
-    data_list,
-    columns=["설비", "온도", "압력"]
-)
+df_list = pd.DataFrame(data_list, columns=["설비", "온도", "압력"])
 
 print("\n2차원 리스트로 만들기")
 print(df_list)
@@ -304,16 +288,9 @@ print(df_list)
 # 6-3. NumPy 배열로 만들기
 # --------------------------------------------
 
-arr = np.array([
-    [70, 10],
-    [80, 15],
-    [90, 20]
-])
+arr = np.array([[70, 10], [80, 15], [90, 20]])
 
-df_numpy = pd.DataFrame(
-    arr,
-    columns=["온도", "압력"]
-)
+df_numpy = pd.DataFrame(arr, columns=["온도", "압력"])
 
 print("\nNumPy 배열로 만들기")
 print(df_numpy)
@@ -326,10 +303,7 @@ print(df_numpy)
 temp = pd.Series([70, 80, 90])
 pressure = pd.Series([10, 15, 20])
 
-df_series = pd.DataFrame({
-    "온도": temp,
-    "압력": pressure
-})
+df_series = pd.DataFrame({"온도": temp, "압력": pressure})
 
 print("\nSeries를 이용해 만들기")
 print(df_series)
@@ -342,12 +316,14 @@ print(df_series)
 # 7. DataFrame 활용
 # ============================================
 
-df = pd.DataFrame({
-    "설비": ["A", "B", "C", "D", "E"],
-    "온도": [65, 72, 85, 91, 78],
-    "압력": [10, 15, 13, 20, 17],
-    "품질": ["정상", "정상", "주의", "불량", "정상"]
-})
+df = pd.DataFrame(
+    {
+        "설비": ["A", "B", "C", "D", "E"],
+        "온도": [65, 72, 85, 91, 78],
+        "압력": [10, 15, 13, 20, 17],
+        "품질": ["정상", "정상", "주의", "불량", "정상"],
+    }
+)
 
 
 # --------------------------------------------
@@ -394,9 +370,7 @@ print(result)
 # 7-4. 여러 조건으로 필터링
 # --------------------------------------------
 
-result2 = df[
-    (df["온도"] >= 80) & (df["압력"] >= 15)
-]
+result2 = df[(df["온도"] >= 80) & (df["압력"] >= 15)]
 
 print("\n온도 80 이상 AND 압력 15 이상")
 print(result2)
@@ -414,10 +388,7 @@ print(result2)
 # 7-5. 원하는 열까지 함께 선택
 # --------------------------------------------
 
-result3 = df.loc[
-    df["온도"] >= 80,
-    ["설비", "온도"]
-]
+result3 = df.loc[df["온도"] >= 80, ["설비", "온도"]]
 
 print("\n조건 + 원하는 열 선택")
 print(result3)
@@ -427,10 +398,7 @@ print(result3)
 # 7-6. 정렬
 # --------------------------------------------
 
-sorted_df = df.sort_values(
-    "온도",
-    ascending=False
-)
+sorted_df = df.sort_values("온도", ascending=False)
 
 print("\n온도 내림차순 정렬")
 print(sorted_df)
