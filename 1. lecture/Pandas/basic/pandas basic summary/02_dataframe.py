@@ -137,15 +137,38 @@ df = pd.DataFrame(
 
 print("\nDataFrame 속성")
 
-print("index:", df.index)  # 행 index
-print("columns:", df.columns)  # 열 이름
-print("values:")
-print(df.values)  # 실제 값
-print("shape:", df.shape)  # (행 개수, 열 개수)
-print("size:", df.size)  # 전체 원소 개수
-print("ndim:", df.ndim)  # 차원 수
-print("dtypes:")
-print(df.dtypes)  # 각 열의 자료형
+# 메서드
+df.head()	    # 앞부분 데이터 확인
+df.info()	    # 전체 구조 확인
+df.describe()   # 수치형 데이터의 기초 통계 확인
+# count	    데이터 개수
+# mean	    평균
+# std	    표준편차
+# min	    최솟값
+# 25%   	1사분위수(Q1)
+# 50%   	중앙값(Q2)
+# 75%	    3사분위수(Q3)
+# max	    최댓값
+# DF 모든 열(숫자형, 문자열 등) 포함 : df.describe(include='all')
+# 숫자형 데이터(int, float) 만 포함 : df.describe(include='number')
+# include="number" → 모든 숫자형
+# include="int"    → 정수형
+# include="float"  → 실수형
+# include="all"    → 모든 자료형
+df.count()      # 전체 칸 수 확인 (값이 없으면 숫자를 세지않음)
+# df.count() → NaN 제외
+# size    → NaN 포함 전체 칸 수
+df["온도"].isna().sum() # NaN이 몇 개인지 직접 세고 싶으면
+
+
+# 속성
+df.index	    # 행 인덱스 확인
+df.columns	    # 컬럼 이름 확인
+df.values	    # 실제 값 확인
+df.shape	    # (행 개수, 열 개수)
+df.size	        # 전체 원소 개수
+df.ndim	        # 차원 수
+df.dtypes	    # 각 컬럼의 자료형
 
 # 중요
 # DataFrame은 2차원이므로
