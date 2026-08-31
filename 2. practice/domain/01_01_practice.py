@@ -161,7 +161,7 @@ print(measure_count.idxmax(), measure_count.max())
 
 
 # ============================================================================
-<실습1>
+# <실습1>
 
 import pandas as pd
 
