@@ -158,3 +158,88 @@ print(measure_count.sort_values(ascending=False))
 print(measure_count.sort_values(ascending=False, kind="stable")) # kind="stable" 옵션을 추가하면 ㄱ,ㄴ,ㄷ 순서가 아닌 정해둔 순서로 나옴
 
 print(measure_count.idxmax(), measure_count.max())
+
+
+# ============================================================================
+<실습1>
+
+import pandas as pd
+
+PROCESS_KR = {
+    "SNT": "소결",
+    "CKO": "코크스",
+    "BF": "고로",
+    "BOF": "전로",
+    "CCM": "연주",
+    "HSM": "열간압연",
+    "CRM": "냉간압연",
+    "UTL": "유틸리티",
+}
+MEASURE_KR = {
+    "VIB": "진동",
+    "CUR": "전류",
+    "TMP": "온도",
+    "PRS": "압력",
+    "FLW": "유량",
+    "SPD": "속도",
+    "LVL": "레벨",
+}
+
+# 공정별 하공정, 상공정 분류
+STAGE_KR = {
+    "SNT": "상공정",
+    "CKO": "상공정",
+    "BF": "상공정",
+    "BOF": "상공정",
+    "CCM": "상공정",
+    "HSM": "하공정",
+    "CRM": "하공정",
+    "UTL": "유틸리티",
+}
+
+# 데이터 읽기
+df = pd.read_csv("01-01_철강_공정_개관_설비태그.csv")
+print("전체 행수:", len(df)) # 24
+
+# dataframe 에 태그에 포함되어있는 정보 컬럼을 추가하기
+# df의 tag를 '-' 기준으로 잘라서 각 컬럼에 순서대로 저장
+df[["plant", "process","equip", "unit_no", "measure"]] = df["tag"].str.split("-", expand=True)
+
+print(df.head())
+
+# map을 통해서 딕셔너리의 키와 (process, measure) 연결
+df["process_kr"]=df["process"].map(PROCESS_KR).fillna("미등록")
+df["measure_kr"]=df["measure"].map(MEASURE_KR).fillna("미등록")
+
+print(df.head())
+
+# (문제 1번) 상공정, 하공정과 관련된 stage 컬럼 추가 
+df["stage"]=df["process"].map(STAGE_KR).fillna("미등록")
+print(df.head())
+
+# groupby: stage 별로 같은 값을 가진 행끼리 묶고
+# size: 개수세기
+print(df.groupby("stage").size())
+'''
+stage
+상공정     14
+유틸리티     3
+하공정      7
+'''
+
+# (문제 3번) 계측항목별 태그개수와 가장 많이 등장하는 물리량(계측항목) 출력해보기
+measure_a=df.groupby("measure_kr").size().sort_values(ascending=False, kind="stable")
+
+#idxmax(): 시리즈나 데이터프레임에서 최대값을 가진 인덱스를 반환
+print(measure_a.idxmax())
+
+###### sort_values()의 kind옵션 - 어떤 정렬 알고리즘 사용할지 지정
+# stable: 값이 같은 경우 기존 순서를 유지하는 정렬 (안정 정렬)
+# quicksort: 퀵정렬 사용하여 정렬 
+# mergesort: 병합정렬 사용하여 정렬 
+# heapsort: 힙정렬 사용하여 정렬
+measure_b=df.groupby("measure_kr").size()
+print(measure_b) # 정렬X
+print('-------')
+
+print(measure_a) # 정렬O
