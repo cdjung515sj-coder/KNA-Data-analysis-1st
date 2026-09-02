@@ -8,9 +8,22 @@ df = pd.read_csv("data/03-01_유압·열설비_신호_유압운전.csv")
 # Step 1. 주요 태그 확인
 # =========================================================
 
-hyd_tags = tags[tags["tag"].str.startswith("HYD")]
+# hyd_tags = tags[tags["tag"].str.startswith("HYD")]
 
-print(hyd_tags[["tag", "physical_qty", "unit", "circuit_position"]])
+# print(hyd_tags[["tag", "physical_qty", "unit", "circuit_position"]])
+
+# loc 사용하여 열과 행 한 번에 선택
+hyd_tags = tags.loc[
+    tags["tag"].str.startswith("HYD"),
+    ["tag", "physical_qty", "unit", "circuit_position"],
+]
+print(hyd_tags)
+
+"""
+tags[조건]	            조건에 맞는 행 선택
+tags.loc[조건]	        조건에 맞는 행 선택
+tags.loc[조건, 컬럼]	조건에 맞는 행 + 원하는 열 선택
+"""
 
 #                     tag physical_qty   unit circuit_position
 # 0      HYD01_PRESS_PUMP           압력    bar           펌프 토출부
@@ -66,6 +79,20 @@ print(result.round(2))
 # HYD01_PUMP_CURRENT      31.45      32.45     증가
 
 
+print("\n", df.head(30)[cols].agg(["mean", "min", "max"]).round(2))
+print("\n", df.tail(10)[cols].agg(["mean", "min", "max"]).round(2))
+
+#       HYD01_PRESS_PUMP  HYD01_FLOW  HYD01_OILTEMP  HYD01_LEVEL  HYD01_PUMP_CURRENT
+# mean             152.3      117.95          42.35         88.0               31.45
+# min              151.0      117.00          42.00         88.0               31.00
+# max              154.0      118.50          43.00         88.0               32.00
+
+#       HYD01_PRESS_PUMP  HYD01_FLOW  HYD01_OILTEMP  HYD01_LEVEL  HYD01_PUMP_CURRENT
+# mean             149.5      116.95          48.35         88.0               32.45
+# min              148.0      116.00          47.50         88.0               32.00
+# max              151.0      117.50          49.50         88.0               33.00
+
+
 # =========================================================
 # Step 3. 필터 차압 계산
 # =========================================================
@@ -73,7 +100,7 @@ print(result.round(2))
 print("\n===== Step 3. 필터 차압 =====")
 
 # 차압 = 필터 전단 압력 - 필터 후단 압력
-df["FILTER_DP"] = df["HYD01_PRESS_FILT_IN"] - df["HYD01_PRESS_FILT_OUT"]
+df["FILTER_DP"] = (df["HYD01_PRESS_FILT_IN"] - df["HYD01_PRESS_FILT_OUT"]).round(2)
 
 # 각 구간
 periods = [
@@ -92,14 +119,34 @@ for name, start, end in periods:
     print(
         name,
         "시작 차압:",
-        round(start_dp, 2),
+        start_dp,
         "종료 차압:",
-        round(end_dp, 2),
+        end_dp,
         "증가폭:",
-        round(increase, 2),
+        increase,
     )
+
 
 # ===== Step 3. 필터 차압 =====
 # 1~30일 시작 차압: 2.5 종료 차압: 5.0 증가폭: 2.5
 # 31~60일 시작 차압: 2.5 종료 차압: 6.0 증가폭: 3.5
 # 61~90일 시작 차압: 2.5 종료 차압: 7.0 증가폭: 4.5
+
+
+for low, high in [(1, 30), (31, 60), (61, 90)]:
+    # 30일과 60일에 필터를 교체했다고 가정
+    seg = df.iloc[low - 1 : high]
+
+    print(
+        low,
+        high,
+        seg["FILTER_DP"].iloc[0],  # 각 구간의 첫째 날 차압
+        seg["FILTER_DP"].iloc[-1],  # 각 구간의 마지막 날 차압
+        round(
+            seg["FILTER_DP"].iloc[-1] - seg["FILTER_DP"].iloc[0], 2
+        ),  # 구간별 차압의 차
+    )
+# 1 30 2.5 5.0 2.5
+# 31 60 2.5 6.0 3.5
+# 61 90 2.5 7.0 4.5
+
